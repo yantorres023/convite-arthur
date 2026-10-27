@@ -88,16 +88,44 @@
     }
   }
 
-  /* Escreve o endereço num elemento (ou o texto de "em breve"). */
-  function local(el, vazio) {
+  /* Escreve o endereço num elemento (ou o texto de "em breve"),
+     com botões para abrir no Google Maps, Waze e Apple Maps. */
+  function local(el, vazio, alvoBotoes) {
     if (!el) return;
     if (!cfg.local) { el.textContent = vazio || 'Endereço em breve 📍'; return; }
     el.textContent = cfg.local;
-    if (cfg.mapa) {
+    const busca = encodeURIComponent(cfg.endereco || cfg.local);
+    const apps = [
+      ['📍', 'Google Maps', cfg.mapa || 'https://www.google.com/maps/search/?api=1&query=' + busca],
+      ['🚗', 'Waze', 'https://waze.com/ul?q=' + busca + '&navigate=yes'],
+      ['🍎', 'Apple Maps', 'https://maps.apple.com/?address=' + busca]
+    ];
+    estiloMapas();
+    const box = document.createElement('span');
+    box.className = 'mapas';
+    apps.forEach(([icone, nome, href]) => {
       const a = document.createElement('a');
-      a.href = cfg.mapa; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Ver no mapa';
-      el.append(document.createElement('br'), a);
-    }
+      a.className = 'mapa-btn'; a.href = href; a.target = '_blank'; a.rel = 'noopener';
+      a.setAttribute('aria-label', 'Abrir o endereço no ' + nome);
+      const i = document.createElement('i'); i.setAttribute('aria-hidden', 'true'); i.textContent = icone;
+      a.append(i, document.createTextNode(nome));
+      box.append(a);
+    });
+    (alvoBotoes || el).append(box);
+  }
+
+  function estiloMapas() {
+    if (document.getElementById('estilo-mapas')) return;
+    const s = document.createElement('style');
+    s.id = 'estilo-mapas';
+    s.textContent =
+      '.mapas.mapas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px;width:100%;max-width:340px}' +
+      '.mapas.mapas>a.mapa-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;margin:0;padding:8px 4px;' +
+      'min-height:54px;border-radius:14px;background:#fff;border:2px solid rgba(74,46,28,.16);color:inherit;font-size:.76rem;font-weight:700;' +
+      'line-height:1.15;text-align:center;text-decoration:none;white-space:normal;box-shadow:0 2px 0 rgba(74,46,28,.1);transition:transform .12s}' +
+      '.mapas.mapas>a.mapa-btn i{font-style:normal;font-size:1.25rem;line-height:1}' +
+      '.mapas.mapas>a.mapa-btn:active{transform:translateY(2px);box-shadow:none}';
+    document.head.append(s);
   }
 
   window.Convite = { cfg, reduce, configurado: !!cfg.planilha, enviar, lembrado, countdown, agenda, local };
