@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saloon do Arthur · 1 ano</title>
+<meta name="description" content="Procura-se: convidados para o 1º rodeio do Arthur! Domingo, 29 de novembro, às 15h. Festa country, venha caracterizado.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="🤠 Procura-se: convidados para o 1º rodeio do Arthur!">
+<meta property="og:description" content="Domingo, 29/11, às 15h · Festa country, venha caracterizado! Abra o convite e confirme sua presença.">
+<meta property="og:image" content="https://yantorres023.github.io/convite-arthur/velho-oeste/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#3a2213">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,600;0,800;1,400&family=Rye&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#3a2213; --ink-2:#6b4528; --rust:#a8401c; --rust-2:#7d2c10;
+  --gold:#d9a23a; --gold-2:#f3cf73; --cream:#fff3d6;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='184'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.22' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.06 0 0 0 0 0.02 0 0 0 1.1 -0.45'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --speck:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.22 0 0 0 0 0.08 0 0 0 0.9 -0.38'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:Bitter,Georgia,serif;color:var(--ink);min-height:100vh;overflow-x:hidden;
+  background-color:#4c2d18;
+  background-image:var(--grain),
+    repeating-linear-gradient(180deg,rgba(0,0,0,.4) 0 3px,rgba(255,255,255,.05) 3px 5px,transparent 5px 92px),
+    linear-gradient(90deg,#5b3820,#4a2c17 35%,#5f3b22 65%,#4b2d18);
+}
+body.locked{overflow:hidden;height:100vh}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Entrada: portas do saloon ---------- */
+.saloon{position:fixed;inset:0;z-index:50;display:grid;place-items:center;overflow:hidden;cursor:pointer;
+  background-image:var(--grain),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.5) 0 3px,rgba(255,255,255,.04) 3px 5px,transparent 5px 68px),
+    linear-gradient(#4f2d16,#2c180a);
+  transition:opacity .9s ease,transform 1.2s cubic-bezier(.6,0,.3,1);}
+.saloon.enter{opacity:0;transform:scale(2.6);pointer-events:none}
+.saloon.gone{display:none}
+.facade{display:flex;flex-direction:column;align-items:center;gap:16px;padding:60px 16px 24px;width:100%}
+.sign{position:relative;text-align:center;color:var(--gold-2);padding:10px 26px 12px;border-radius:8px;
+  background-image:var(--grain),linear-gradient(#7d4b25,#5c3519);
+  border:4px solid #2a170a;box-shadow:0 12px 18px rgba(0,0,0,.45),inset 0 0 0 2px rgba(255,220,150,.15);
+  transform-origin:50% -40px;animation:signSwing 4s ease-in-out infinite}
+.sign::before,.sign::after{content:"";position:absolute;top:-38px;width:4px;height:38px;border-radius:2px;
+  background:repeating-linear-gradient(#b9b9b9 0 5px,#5b5b5b 5px 8px)}
+.sign::before{left:26px}.sign::after{right:26px}
+.sign small{display:block;font:400 .78rem 'Special Elite',monospace;letter-spacing:.24em;color:#f0d9a8}
+.sign strong{display:block;font:400 clamp(1.45rem,6.4vw,2.3rem)/1.1 Rye,serif;letter-spacing:.03em;text-shadow:0 2px 0 #2a170a}
+@keyframes signSwing{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
+.doorway{position:relative;width:min(80vw,340px);height:min(56vh,440px);
+  border:14px solid #24130a;border-bottom:0;border-radius:6px 6px 0 0;
+  background:radial-gradient(ellipse at 50% 30%,#ffe3a1 0%,#f3a63e 32%,#9b5219 68%,#3a1e0b 100%);
+  box-shadow:inset 0 0 50px rgba(0,0,0,.55),0 0 80px rgba(255,170,60,.28)}
+.lamp{position:absolute;left:50%;top:0;width:2px;height:16%;background:#2a170a;transform:translateX(-50%)}
+.lamp::after{content:"";position:absolute;left:50%;bottom:-14px;width:34px;height:16px;transform:translateX(-50%);
+  background:#2a170a;border-radius:18px 18px 4px 4px;box-shadow:0 10px 30px 12px rgba(255,236,170,.55)}
+.doors{position:absolute;left:0;right:0;top:26%;height:52%;border:0;background:none;cursor:pointer;perspective:900px}
+.door{position:absolute;top:0;width:50%;height:100%;
+  background-image:var(--grain),linear-gradient(90deg,#7d4c27,#a8723f 45%,#86532d);
+  box-shadow:inset 0 -6px 0 #3b210f,inset 0 0 0 3px #3b210f;
+  animation:nudgeL 3.4s ease-in-out infinite}
+.door.left{left:0;transform-origin:0 50%;clip-path:polygon(0 0,40% 4%,70% 13%,90% 24%,100% 32%,100% 100%,0 100%)}
+.door.right{right:0;transform-origin:100% 50%;clip-path:polygon(100% 0,60% 4%,30% 13%,10% 24%,0 32%,0 100%,100% 100%);animation-name:nudgeR}
+.door::before{content:"";position:absolute;left:15%;right:15%;top:37%;height:25%;border-radius:2px;
+  background:repeating-linear-gradient(180deg,#6a3d1c 0 5px,#3e2210 5px 8px);box-shadow:0 0 0 3px #3b210f}
+.door::after{content:"";position:absolute;left:15%;right:15%;top:70%;bottom:11%;border-radius:2px;
+  background:linear-gradient(#97633b,#71472a);box-shadow:0 0 0 3px #3b210f,inset 0 0 0 6px rgba(0,0,0,.12)}
+@keyframes nudgeL{0%,78%,100%{transform:rotateY(0)}85%{transform:rotateY(-16deg)}92%{transform:rotateY(5deg)}}
+@keyframes nudgeR{0%,78%,100%{transform:rotateY(0)}85%{transform:rotateY(16deg)}92%{transform:rotateY(-5deg)}}
+.open .door.left{animation:swingL 1.4s cubic-bezier(.3,.7,.4,1) forwards}
+.open .door.right{animation:swingR 1.4s cubic-bezier(.3,.7,.4,1) forwards}
+@keyframes swingL{0%{transform:rotateY(0)}28%{transform:rotateY(-112deg)}48%{transform:rotateY(-55deg)}66%{transform:rotateY(-96deg)}83%{transform:rotateY(-72deg)}100%{transform:rotateY(-86deg)}}
+@keyframes swingR{0%{transform:rotateY(0)}28%{transform:rotateY(112deg)}48%{transform:rotateY(55deg)}66%{transform:rotateY(96deg)}83%{transform:rotateY(72deg)}100%{transform:rotateY(86deg)}}
+.floor{width:min(96vw,460px);height:10px;background:#1e1007;border-radius:3px;margin-top:-16px}
+.hint{font:400 1rem 'Special Elite',monospace;color:#f6deb0;letter-spacing:.08em;text-align:center;animation:blink 1.8s ease-in-out infinite}
+.hint b{font-weight:400;color:var(--gold-2)}
+@keyframes blink{0%,100%{opacity:.55}50%{opacity:1}}
+
+/* ---------- Layout ---------- */
+main{position:relative;z-index:2;max-width:560px;margin:0 auto;padding:64px 16px 130px;display:flex;flex-direction:column;gap:70px}
+.paper{position:relative;
+  background-image:var(--speck),radial-gradient(ellipse at 50% 40%,#f9edcf 0%,#efdcb0 55%,#d9b97d 100%);
+  box-shadow:inset 0 0 55px rgba(110,60,15,.45),inset 0 0 6px rgba(80,40,10,.5),0 20px 40px rgba(0,0,0,.5)}
+.nail{position:absolute;width:15px;height:15px;border-radius:50%;z-index:3;
+  background:radial-gradient(circle at 35% 35%,#f2f2f2,#8a8a8a 50%,#333);box-shadow:1px 3px 3px rgba(0,0,0,.55)}
+.nail.tl{top:12px;left:12px}.nail.tr{top:12px;right:12px}.nail.bl{bottom:12px;left:12px}.nail.br{bottom:12px;right:12px}
+.reveal{opacity:0;transform:translateY(44px) rotate(var(--r,0deg));transition:opacity .8s ease,transform .9s cubic-bezier(.2,.9,.3,1.25)}
+.reveal.in{opacity:1;transform:translateY(0) rotate(var(--r,0deg))}
+
+/* ---------- Cartaz ---------- */
+.poster{padding:50px 24px 36px;text-align:center;transform:rotate(-1deg);opacity:0}
+.ready .poster{animation:drop 1.1s cubic-bezier(.2,1.25,.4,1) .35s forwards}
+@keyframes drop{0%{opacity:0;transform:translateY(-90px) rotate(-7deg)}100%{opacity:1;transform:translateY(0) rotate(-1deg)}}
+.kicker{font:400 .78rem 'Special Elite',monospace;letter-spacing:.24em;color:var(--ink-2)}
+.rule{height:3px;background:var(--ink);width:88%;margin:10px auto;box-shadow:0 6px 0 -1px var(--ink)}
+.wanted{font:400 clamp(2.1rem,11vw,4.3rem)/1 Rye,serif;letter-spacing:0;white-space:nowrap;margin:16px 0 8px;text-shadow:3px 3px 0 rgba(168,64,28,.25)}
+.sub{font-style:italic;font-size:1.05rem;color:var(--ink-2);margin-top:14px}
+.event{font:400 clamp(1.6rem,7.5vw,2.25rem)/1.15 Rye,serif;color:var(--rust);margin-top:4px}
+.badge{display:block;position:relative;width:min(58vw,230px);aspect-ratio:1;margin:14px auto 4px;border:0;background:none;cursor:pointer;
+  filter:drop-shadow(0 10px 10px rgba(0,0,0,.35))}
+.badge svg{width:100%;height:100%;display:block;animation:float 4s ease-in-out infinite}
+.badge.spin svg{animation:spin 1.1s cubic-bezier(.2,.8,.2,1)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+@keyframes spin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(200deg) scale(1.14)}100%{transform:rotate(360deg) scale(1)}}
+.shine{animation:shine 3.6s ease-in-out infinite}
+@keyframes shine{0%,55%{transform:translateX(-80px)}85%,100%{transform:translateX(300px)}}
+.pop{position:absolute;left:50%;top:10%;font:400 1.6rem Rye,serif;color:var(--rust);pointer-events:none;white-space:nowrap;
+  text-shadow:2px 2px 0 var(--cream);animation:pop 1.1s ease-out forwards}
+@keyframes pop{0%{opacity:0;transform:translate(-50%,10px) scale(.5) rotate(-8deg)}25%{opacity:1;transform:translate(-50%,-14px) scale(1.15) rotate(4deg)}100%{opacity:0;transform:translate(-50%,-70px) scale(1) rotate(-4deg)}}
+.tap-tip{font:400 .72rem 'Special Elite',monospace;color:var(--ink-2);letter-spacing:.1em}
+.name{font:400 clamp(2.8rem,15vw,5.4rem)/1 Rye,serif;color:var(--rust);text-shadow:3px 3px 0 var(--ink);letter-spacing:.02em;white-space:nowrap;margin-top:12px}
+.age{font-size:1.12rem;line-height:1.5;margin:14px auto 0;max-width:30ch}
+.reward{margin:26px auto 0;border:4px double var(--ink);padding:12px 16px 14px;max-width:360px;background:rgba(255,255,255,.14)}
+.reward span{display:block;font:400 1.55rem Rye,serif;color:var(--rust);letter-spacing:.06em}
+.reward p{font-size:1rem;line-height:1.45;margin-top:4px}
+.when{display:flex;justify-content:center;gap:12px;margin-top:26px}
+.when>div{flex:1;max-width:160px;border:2px solid var(--ink);padding:10px 6px 12px;background:rgba(255,255,255,.18);box-shadow:4px 4px 0 rgba(58,34,19,.25)}
+.when small{display:block;font:400 .78rem 'Special Elite',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.when b{display:block;font:400 2.8rem/1.1 Rye,serif}
+.where{margin-top:18px;font-size:.98rem;line-height:1.45;color:var(--ink-2)}
+.where a{color:var(--rust);font-weight:600}
+
+/* ---------- Placa de contagem ---------- */
+.board{position:relative;--r:.8deg;padding:24px 16px 20px;text-align:center;color:#f7e2b5;border-radius:10px;
+  background-image:var(--grain),repeating-linear-gradient(180deg,rgba(0,0,0,.35) 0 2px,transparent 2px 46px),linear-gradient(#8a5630,#6a3f20);
+  box-shadow:inset 0 0 0 4px #2f1a0b,inset 0 0 30px rgba(0,0,0,.5),0 18px 32px rgba(0,0,0,.45)}
+.board::before,.board::after{content:"";position:absolute;top:-46px;width:7px;height:50px;border-radius:4px;
+  background:repeating-linear-gradient(45deg,#d4b07a 0 4px,#8a6534 4px 8px)}
+.board::before{left:22%}.board::after{right:22%}
+.board h2{font:400 1.6rem Rye,serif;color:var(--gold-2);text-shadow:0 2px 0 #2f1a0b}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.cd div{background:rgba(0,0,0,.3);border-radius:8px;padding:10px 0 8px;box-shadow:inset 0 2px 8px rgba(0,0,0,.55)}
+.cd b{display:block;font:400 clamp(1.7rem,8vw,2.5rem)/1.1 Rye,serif;color:var(--cream)}
+.cd b.tick{animation:tick .4s ease}
+@keyframes tick{0%{transform:translateY(-8px) scale(1.1);opacity:.3}100%{transform:none;opacity:1}}
+.cd span{font:400 .7rem 'Special Elite',monospace;letter-spacing:.14em;text-transform:uppercase;color:#e9c98f}
+.today{font:400 1.6rem Rye,serif;color:var(--gold-2);grid-column:1/-1}
+
+/* ---------- Traje / Peãozômetro ---------- */
+.note{--r:-.7deg;padding:44px 20px 30px;text-align:center}
+.h-west{font:400 clamp(1.9rem,9vw,2.6rem)/1.1 Rye,serif;color:var(--ink)}
+.h-west em{display:block;font:italic 400 1.1rem Bitter,serif;color:var(--rust);margin-top:6px}
+.note p.lead{font-size:1.02rem;line-height:1.55;margin:14px auto 0;max-width:34ch}
+.items{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.item{position:relative;border:2px dashed rgba(58,34,19,.45);background:rgba(255,255,255,.25);border-radius:12px;padding:12px 4px 8px;cursor:pointer;
+  transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,border-color .2s,box-shadow .2s}
+.item svg{width:54px;height:54px;display:block;margin:0 auto 6px;transition:transform .35s cubic-bezier(.3,1.8,.5,1)}
+.item span{font:400 .78rem 'Special Elite',monospace;letter-spacing:.04em}
+.item:hover{transform:translateY(-3px)}
+.item[aria-pressed="true"]{border-style:solid;border-color:var(--rust);background:rgba(168,64,28,.14);box-shadow:3px 3px 0 var(--rust)}
+.item[aria-pressed="true"] svg{transform:scale(1.15) rotate(-8deg)}
+.item::after{content:"✔";position:absolute;top:-9px;right:-7px;width:24px;height:24px;border-radius:50%;background:var(--rust);color:#fff;
+  font-size:.8rem;line-height:24px;transform:scale(0);transition:transform .3s cubic-bezier(.3,1.8,.5,1)}
+.item[aria-pressed="true"]::after{transform:scale(1)}
+.meter{margin-top:22px}
+.meter-top{display:flex;justify-content:space-between;font:400 .78rem 'Special Elite',monospace;letter-spacing:.12em;color:var(--ink-2);margin-bottom:6px}
+.meter-bar{height:24px;border-radius:14px;background:rgba(58,34,19,.12);box-shadow:inset 0 0 0 2px var(--ink);overflow:hidden;padding:3px}
+.meter-bar i{display:block;height:100%;width:4%;border-radius:10px;background:repeating-linear-gradient(-45deg,#e3ad44 0 9px,#b97f22 9px 18px);background-size:25.5px 25.5px;
+  transition:width .7s cubic-bezier(.3,1.4,.5,1);animation:barmove .9s linear infinite}
+@keyframes barmove{to{background-position:25.5px 0}}
+.level{font:400 1.35rem Rye,serif;color:var(--rust);margin-top:12px;min-height:1.6em}
+.level.bump{animation:bump .5s cubic-bezier(.3,1.8,.5,1)}
+@keyframes bump{0%{transform:scale(.7)}100%{transform:scale(1)}}
+
+/* ---------- Telegrama / RSVP ---------- */
+.telegram{--r:.5deg;position:relative;padding:0 0 26px;background:#f5ecd5;
+  background-image:var(--speck),linear-gradient(#f7efda,#efe2c2);
+  box-shadow:inset 0 0 30px rgba(110,60,15,.25),0 20px 40px rgba(0,0,0,.5)}
+.tg-head{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#f5ecd5;padding:12px 18px;
+  font:400 .8rem 'Special Elite',monospace;letter-spacing:.18em}
+.tg-head strong{font:400 1.25rem Rye,serif;letter-spacing:.12em;color:var(--gold-2)}
+.tg-body{padding:18px 20px 0;font-family:'Special Elite',monospace}
+.tg-meta{font-size:.85rem;line-height:1.7;color:var(--ink-2);border-bottom:1px dashed rgba(58,34,19,.4);padding-bottom:10px}
+.tg-body h2{font:400 clamp(1.6rem,7.5vw,2.1rem)/1.15 Rye,serif;margin-top:16px;color:var(--ink)}
+.tg-body .lead{font-size:.95rem;line-height:1.5;margin-top:6px;color:var(--ink-2)}
+.field{display:block;margin-top:16px;font:400 .82rem 'Special Elite',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.field input,.field textarea{display:block;width:100%;margin-top:6px;font:400 1.1rem 'Special Elite',monospace;color:var(--ink);
+  background:rgba(255,255,255,.55);border:0;border-bottom:2px dashed var(--ink-2);padding:11px 10px;border-radius:6px 6px 0 0;outline:none;resize:vertical}
+.field input:focus,.field textarea:focus{background:#fff;border-bottom-style:solid;border-color:var(--rust)}
+.field.err input{border-color:#c0261b;background:#fff1ec;animation:shake .45s}
+.err-msg{display:block;margin-top:6px;color:#b3261e;font-size:.82rem;text-transform:none;letter-spacing:0}
+.err-msg[hidden]{display:none}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.steppers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.stepper{border:2px solid rgba(58,34,19,.35);border-radius:10px;padding:8px 8px 10px;text-align:center;background:rgba(255,255,255,.35)}
+.stepper>span{display:block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.stepper>div{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:6px}
+.stepper button{width:36px;height:36px;flex:none;border-radius:50%;border:2px solid var(--ink);background:var(--cream);font:400 1.3rem/1 Rye,serif;cursor:pointer;
+  transition:transform .15s}
+.stepper button:active{transform:scale(.88)}
+.stepper output{font:400 1.7rem Rye,serif;min-width:1.4em}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;cursor:pointer;text-decoration:none;border-radius:12px;transition:transform .15s,box-shadow .15s}
+.btn-yes{margin-top:22px;padding:17px 16px;font:400 1.15rem Rye,serif;letter-spacing:.03em;color:#fff6e0;
+  background:linear-gradient(#bd4a20,#8e3313);box-shadow:0 6px 0 #5e200a,0 14px 20px rgba(0,0,0,.25);text-shadow:0 2px 0 rgba(0,0,0,.3)}
+.btn-yes:active{transform:translateY(4px);box-shadow:0 2px 0 #5e200a}
+.btn-yes svg{width:24px;height:24px;flex:none}
+.btn-no{margin-top:14px;background:none;padding:10px;font:400 .95rem 'Special Elite',monospace;color:var(--ink-2);text-decoration:underline;text-underline-offset:4px}
+.btn-cal{margin-top:6px;padding:12px;font:400 .95rem 'Special Elite',monospace;color:var(--ink);border:2px dashed rgba(58,34,19,.5);background:rgba(255,255,255,.3)}
+.stamp{position:absolute;right:16px;top:90px;padding:8px 14px;border:4px solid #b3261e;border-radius:10px;color:#b3261e;text-align:center;
+  font:400 1.35rem/1.05 Rye,serif;letter-spacing:.06em;opacity:0;pointer-events:none;transform:rotate(-14deg) scale(3);mix-blend-mode:multiply}
+.stamp small{display:block;font:400 .62rem 'Special Elite',monospace;letter-spacing:.14em}
+.stamp.show{animation:stamp .5s cubic-bezier(.2,1.6,.4,1) forwards}
+@keyframes stamp{to{opacity:.88;transform:rotate(-14deg) scale(1)}}
+
+footer{text-align:center;color:#f3dcae;margin-top:-20px}
+footer p{font:400 1.5rem Rye,serif;text-shadow:0 3px 0 #1e1007}
+footer small{display:block;margin-top:8px;font:400 .8rem 'Special Elite',monospace;letter-spacing:.2em;opacity:.75}
+.horseshoe{width:46px;height:46px;margin:0 auto 10px;display:block;animation:float 3s ease-in-out infinite}
+
+/* ---------- Botão flutuante + bola de feno ---------- */
+.fab{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));z-index:30;display:flex;align-items:center;gap:8px;
+  padding:13px 22px;border-radius:40px;border:3px solid #2f1a0b;background:linear-gradient(#f3cf73,#d9a23a);color:#2f1a0b;
+  font:400 1rem Rye,serif;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.45);white-space:nowrap;
+  transform:translate(-50%,160%);transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.fab.show{transform:translate(-50%,0)}
+.tumble{position:fixed;left:0;bottom:6px;width:70px;height:70px;z-index:1;pointer-events:none;opacity:.9;animation:roll 18s linear 3s infinite;transform:translateX(-100px)}
+.tumble span{display:block;width:100%;height:100%;animation:hop .55s ease-in-out infinite alternate}
+.tumble svg{width:100%;height:100%;animation:rot 1.2s linear infinite}
+@keyframes roll{0%{transform:translateX(-100px)}50%,100%{transform:translateX(calc(100vw + 100px))}}
+@keyframes hop{from{transform:translateY(0)}to{transform:translateY(-26px)}}
+@keyframes rot{to{transform:rotate(360deg)}}
+
+@media (min-width:700px){ main{padding-top:90px} .items{gap:14px} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .tumble{display:none}
+}
+</style>
+<noscript><style>.saloon{display:none}.poster,.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body class="locked">
+
+<!-- Definições SVG compartilhadas -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fde8a6"/><stop offset=".45" stop-color="#d9a23a"/><stop offset=".7" stop-color="#f6d47c"/><stop offset="1" stop-color="#a8741f"/>
+    </linearGradient>
+    <linearGradient id="shineG" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <pattern id="plaid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <rect width="12" height="12" fill="#c0392b"/><rect width="12" height="4" y="4" fill="#7b1e14" opacity=".7"/><rect width="4" height="12" x="4" fill="#7b1e14" opacity=".7"/>
+      <rect width="12" height="1" y="10" fill="#f4d9a0" opacity=".6"/><rect width="1" height="12" x="10" fill="#f4d9a0" opacity=".6"/>
+    </pattern>
+  </defs>
+</svg>
+
+<!-- Entrada -->
+<div class="saloon" id="saloon" role="button" tabindex="0" aria-label="Abrir as portas do saloon e ver o convite">
+  <div class="facade">
+    <div class="sign"><small>~ BEM-VINDO AO ~</small><strong>Saloon do Arthur</strong></div>
+    <div class="doorway">
+      <span class="lamp"></span>
+      <span class="doors" id="doors"><span class="door left"></span><span class="door right"></span></span>
+    </div>
+    <div class="floor"></div>
+    <p class="hint">Toque nas portas para <b>entrar</b></p>
+  </div>
+</div>
+
+<main id="main">
+  <!-- Cartaz -->
+  <section class="poster paper" aria-labelledby="titulo">
+    <span class="nail tl"></span><span class="nail tr"></span><span class="nail bl"></span><span class="nail br"></span>
+    <p class="kicker">★ AVISO DO XERIFE ★</p>
+    <div class="rule"></div>
+    <h1 class="wanted" id="titulo">PROCURA-SE</h1>
+    <div class="rule"></div>
+    <p class="sub">peões, cowgirls e xerifes de todas as idades para o</p>
+    <p class="event">1º Rodeio do</p>
+
+    <button class="badge" id="badge" aria-label="Girar a estrela de xerife">
+      <svg viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <clipPath id="starClip"><polygon points="100,14 125,56.7 174.5,57 150,100 174.5,143 125,143.3 100,186 75,143.3 25.5,143 50,100 25.5,57 75,56.7"/></clipPath>
+          <path id="ring" d="M64,100 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/>
+        </defs>
+        <polygon points="100,14 125,56.7 174.5,57 150,100 174.5,143 125,143.3 100,186 75,143.3 25.5,143 50,100 25.5,57 75,56.7" fill="url(#goldG)" stroke="#7a5212" stroke-width="3" stroke-linejoin="round"/>
+        <g fill="url(#goldG)" stroke="#7a5212" stroke-width="2.5">
+          <circle cx="100" cy="14" r="10"/><circle cx="174.5" cy="57" r="10"/><circle cx="174.5" cy="143" r="10"/>
+          <circle cx="100" cy="186" r="10"/><circle cx="25.5" cy="143" r="10"/><circle cx="25.5" cy="57" r="10"/>
+        </g>
+        <g clip-path="url(#starClip)"><g class="shine"><rect x="-40" y="0" width="34" height="200" fill="url(#shineG)" transform="skewX(-18)"/></g></g>
+        <circle cx="100" cy="100" r="47" fill="#b98329" stroke="#7a5212" stroke-width="3"/>
+        <text font-family="Rye" font-size="10" fill="#fff3d6"><textPath href="#ring" textLength="222" lengthAdjust="spacing">★ XERIFE ARTHUR ★ RODEIO DE 1 ANO </textPath></text>
+        <circle cx="100" cy="100" r="31" fill="url(#goldG)" stroke="#7a5212" stroke-width="2"/>
+        <text x="100" y="114" text-anchor="middle" font-family="Rye" font-size="44" fill="#5c3a0c">1</text>
+        <text x="100" y="125" text-anchor="middle" font-family="Rye" font-size="8.5" fill="#5c3a0c" letter-spacing="1.5">ANO</text>
+      </svg>
+    </button>
+    <p class="tap-tip">(toque na estrela)</p>
+
+    <h2 class="name">ARTHUR</h2>
+    <p class="age">Nosso pequeno peão completa <strong>1 ano</strong> e quer o bando todo reunido pra comemorar!</p>
+
+    <div class="reward">
+      <span>RECOMPENSA</span>
+      <p>Bolo, brincadeiras, muita alegria e o sorriso do aniversariante!</p>
+    </div>
+
+    <div class="when">
+      <div><small>Domingo</small><b>29</b><small>de novembro</small></div>
+      <div><small>às</small><b>15h</b><small>da tarde</small></div>
+    </div>
+    <p class="where" id="where">📍 O endereço do saloon vai junto com a sua confirmação no WhatsApp.</p>
+  </section>
+
+  <!-- Contagem -->
+  <section class="board reveal" aria-labelledby="cd-title">
+    <h2 id="cd-title">Faltam só</h2>
+    <div class="cd" id="cd" aria-live="off">
+      <div><b id="cd-d">00</b><span>dias</span></div>
+      <div><b id="cd-h">00</b><span>horas</span></div>
+      <div><b id="cd-m">00</b><span>min</span></div>
+      <div><b id="cd-s">00</b><span>seg</span></div>
+    </div>
+  </section>
+
+  <!-- Traje -->
+  <section class="note paper reveal" aria-labelledby="traje">
+    <span class="nail tl"></span><span class="nail tr"></span>
+    <h2 class="h-west" id="traje">Traje: Country<em>venha caracterizado!</em></h2>
+    <p class="lead">No saloon do Arthur a regra é clara: <strong>todo mundo vem a caráter!</strong> Toque no que você vai usar e descubra seu nível no Peãozômetro:</p>
+
+    <div class="items" role="group" aria-label="Peças do seu look country">
+      <button class="item" aria-pressed="false" data-item="chapéu">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 41c-1-10 1-22 7-25 3-1 5 2 8 2s5-3 8-2c6 3 8 15 7 25-9 3-21 3-30 0z" fill="#8a5a2b" stroke="#3a2213" stroke-width="2"/><path d="M17.6 35.4c9 2.5 19.8 2.5 28.8 0l.3 4.6c-9 2.6-20.4 2.6-29.4 0z" fill="#3a2213"/><path d="M4 38c4 4 14 7 28 7s24-3 28-7c2 2 0 8-6 11-6 3-14 4-22 4s-16-1-22-4C4 46 2 40 4 38z" fill="#a8703a" stroke="#3a2213" stroke-width="2"/></svg>
+        <span>Chapéu</span>
+      </button>
+      <button class="item" aria-pressed="false" data-item="camisa xadrez">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 8l10 7 10-7 15 8-6 13-6-3v30H19V26l-6 3-6-13z" fill="url(#plaid)" stroke="#3a2213" stroke-width="2" stroke-linejoin="round"/><path d="M22 8l10 12 10-12" fill="#f4e4c1" stroke="#3a2213" stroke-width="2" stroke-linejoin="round"/><path d="M32 20v36" stroke="#3a2213" stroke-width="1.5"/><g fill="#f4e4c1"><circle cx="32" cy="29" r="1.5"/><circle cx="32" cy="39" r="1.5"/><circle cx="32" cy="49" r="1.5"/></g></svg>
+        <span>Xadrez</span>
+      </button>
+      <button class="item" aria-pressed="false" data-item="bota">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 6h22v27c2 5 8 7 14 9 5 2 8 5 8 10v3H33l-3-3h-6v3H16z" fill="#7a4520" stroke="#3a2213" stroke-width="2" stroke-linejoin="round"/><path d="M16 12h22" stroke="#3a2213" stroke-width="2"/><path d="M21 18c4 4 8 4 12 0M21 26c4 4 8 4 12 0" fill="none" stroke="#d9a23a" stroke-width="2" stroke-linecap="round"/><path d="M14 55h48v4H14z" fill="#3a2213"/><circle cx="11" cy="49" r="4" fill="none" stroke="#8b9096" stroke-width="2.2"/></svg>
+        <span>Bota</span>
+      </button>
+      <button class="item" aria-pressed="false" data-item="bandana">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 14h52L32 54z" fill="#c0392b" stroke="#3a2213" stroke-width="2" stroke-linejoin="round"/><g fill="#fff" opacity=".85"><circle cx="20" cy="20" r="2"/><circle cx="32" cy="22" r="2.4"/><circle cx="44" cy="20" r="2"/><circle cx="26" cy="31" r="2"/><circle cx="38" cy="31" r="2"/><circle cx="32" cy="41" r="2"/></g><path d="M7 14c-4-4-3-8 1-9M57 14c4-4 3-8-1-9" fill="none" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/></svg>
+        <span>Bandana</span>
+      </button>
+      <button class="item" aria-pressed="false" data-item="fivela">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="26" width="60" height="12" rx="2" fill="#6b3f1c"/><ellipse cx="32" cy="32" rx="20" ry="15" fill="url(#goldG)" stroke="#7a5212" stroke-width="2"/><ellipse cx="32" cy="32" rx="14" ry="10" fill="none" stroke="#7a5212" stroke-width="1.5"/><path d="M32 24.5l2.3 4.8 5.2.6-3.9 3.6 1.1 5.1-4.7-2.6-4.7 2.6 1.1-5.1-3.9-3.6 5.2-.6z" fill="#7a5212"/></svg>
+        <span>Fivela</span>
+      </button>
+      <button class="item" aria-pressed="false" data-item="calça jeans">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M15 6h34l4 52H39l-7-32-7 32H11z" fill="#3d5a8a" stroke="#1f2f4d" stroke-width="2" stroke-linejoin="round"/><path d="M15 13h34" stroke="#1f2f4d" stroke-width="2"/><path d="M32 13v12M19 13c0 5 4 8 8 8M45 13c0 5-4 8-8 8" fill="none" stroke="#e3ad44" stroke-width="1.5" stroke-dasharray="2 2"/></svg>
+        <span>Jeans</span>
+      </button>
+    </div>
+
+    <div class="meter">
+      <div class="meter-top"><span>PEÃOZÔMETRO</span><span id="meterPct">0%</span></div>
+      <div class="meter-bar" role="progressbar" aria-label="Peãozômetro" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="meterBar"><i id="meterFill"></i></div>
+      <p class="level" id="level" aria-live="polite">Forasteiro 🌵</p>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="telegram reveal" id="rsvp" aria-labelledby="rsvp-title">
+    <div class="tg-head"><strong>TELEGRAMA</strong><span>Nº 0001</span></div>
+    <div class="tg-body">
+      <p class="tg-meta">PARA: Família do Arthur — STOP<br>ASSUNTO: Confirmação de presença — STOP</p>
+      <h2 id="rsvp-title">Vai colar no rodeio?</h2>
+      <p class="lead">Preencha e envie direto pelo WhatsApp. Leva 10 segundos, parceiro!</p>
+
+      <form id="form" novalidate>
+        <label class="field" id="nomeField">Seu nome (ou da família)
+          <input id="nome" name="nome" autocomplete="name" placeholder="Ex.: Família Silva" maxlength="80">
+          <span class="err-msg" id="nomeErr" hidden>Conta pra gente quem é você 😉</span>
+        </label>
+
+        <div class="steppers">
+          <div class="stepper"><span>Adultos</span>
+            <div><button type="button" data-step="-1" data-target="adultos" aria-label="Menos um adulto">−</button><output id="adultos" aria-live="polite">1</output><button type="button" data-step="1" data-target="adultos" aria-label="Mais um adulto">+</button></div>
+          </div>
+          <div class="stepper"><span>Crianças</span>
+            <div><button type="button" data-step="-1" data-target="criancas" aria-label="Menos uma criança">−</button><output id="criancas" aria-live="polite">0</output><button type="button" data-step="1" data-target="criancas" aria-label="Mais uma criança">+</button></div>
+          </div>
+        </div>
+
+        <label class="field">Recado pro aniversariante (opcional)
+          <textarea id="recado" rows="2" maxlength="300" placeholder="Parabéns, peãozinho!"></textarea>
+        </label>
+
+        <button class="btn btn-yes" type="submit" id="btnYes">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span id="btnYesTxt">Confirmar no WhatsApp</span>
+        </button>
+        <button class="btn btn-no" type="button" id="btnNo">Não vou conseguir ir 😢</button>
+      </form>
+      <a class="btn btn-cal" id="cal" href="#" target="_blank" rel="noopener">📅 Salvar na agenda</a>
+    </div>
+    <div class="stamp" id="stamp" aria-hidden="true">CONFIRMADO<small>PELO XERIFE</small></div>
+  </section>
+
+  <footer>
+    <svg class="horseshoe" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 8c-6 10-8 22-4 32 3 8 10 14 22 14s19-6 22-14c4-10 2-22-4-32h-9c5 9 7 19 4 27-2 5-6 8-13 8s-11-3-13-8c-3-8-1-18 4-27z" fill="url(#goldG)" stroke="#7a5212" stroke-width="2"/><g fill="#7a5212"><circle cx="15" cy="20" r="1.8"/><circle cx="13" cy="31" r="1.8"/><circle cx="17" cy="41" r="1.8"/><circle cx="49" cy="20" r="1.8"/><circle cx="51" cy="31" r="1.8"/><circle cx="47" cy="41" r="1.8"/></g></svg>
+    <p>Te esperamos no saloon!</p>
+    <small>ARTHUR · 1 ANO · 29.11.2026</small>
+  </footer>
+</main>
+
+<a class="fab" id="fab" href="#rsvp">🤠 Confirmar presença</a>
+
+<div class="tumble" aria-hidden="true"><span><svg viewBox="0 0 100 100"><g fill="none" stroke="#a07a45" stroke-width="2.6" stroke-linecap="round"><ellipse cx="50" cy="50" rx="42" ry="30"/><ellipse cx="50" cy="50" rx="42" ry="30" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="42" ry="30" transform="rotate(120 50 50)"/><ellipse cx="50" cy="50" rx="28" ry="16" transform="rotate(30 50 50)"/><ellipse cx="50" cy="50" rx="28" ry="16" transform="rotate(100 50 50)"/><circle cx="50" cy="50" r="40"/></g></svg></span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+<script>
+/* ===== Ajuste aqui ===== */
+const CONFIG = {
+  whatsapp: '5531991692132',
+  inicio: '2026-11-29T15:00:00-03:00',
+  local: '',  // ex.: 'Rua das Flores, 123 – Bairro, Belo Horizonte'
+  mapa: ''    // link do Google Maps (opcional)
+};
+/* ======================= */
+const $ = s => document.querySelector(s);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function boom(opts = {}) {
+  if (reduce || !window.confetti) return;
+  const base = { particleCount: 90, spread: 80, startVelocity: 42, ticks: 220, colors: ['#f3cf73', '#d9a23a', '#a8401c', '#fff3d6', '#7a4520'], shapes: ['star', 'square'], scalar: 1.1, zIndex: 60 };
+  confetti({ ...base, origin: { x: .2, y: .75 }, angle: 60, ...opts });
+  confetti({ ...base, origin: { x: .8, y: .75 }, angle: 120, ...opts });
+}
+
+/* Endereço */
+if (CONFIG.local) {
+  const w = $('#where'); w.textContent = '📍 ' + CONFIG.local;
+  if (CONFIG.mapa) { const a = document.createElement('a'); a.href = CONFIG.mapa; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Ver no mapa'; w.append(' · ', a); }
+}
+
+/* Entrada */
+const saloon = $('#saloon');
+let opened = false;
+function enter() {
+  if (opened) return; opened = true;
+  saloon.classList.add('open');
+  setTimeout(() => { saloon.classList.add('enter'); document.body.classList.remove('locked'); document.body.classList.add('ready'); }, reduce ? 30 : 950);
+  setTimeout(() => saloon.classList.add('gone'), reduce ? 300 : 2200);
+  setTimeout(() => boom({ particleCount: 60 }), reduce ? 0 : 1500);
+}
+saloon.addEventListener('click', enter);
+saloon.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enter(); } });
+
+/* Estrela do xerife */
+const badge = $('#badge');
+const shouts = ['Yeehaw!', 'Iiiha!', 'Uhuu!', 'Bang!', 'Ê boi!'];
+badge.addEventListener('click', () => {
+  badge.classList.remove('spin'); void badge.offsetWidth; badge.classList.add('spin');
+  const p = document.createElement('span'); p.className = 'pop'; p.textContent = shouts[Math.floor(Math.random() * shouts.length)];
+  badge.append(p); setTimeout(() => p.remove(), 1200);
+  if (window.confetti && !reduce) { const r = badge.getBoundingClientRect(); confetti({ particleCount: 30, spread: 360, startVelocity: 22, ticks: 90, shapes: ['star'], colors: ['#f3cf73', '#d9a23a'], origin: { x: (r.left + r.width / 2) / innerWidth, y: (r.top + r.height / 2) / innerHeight }, zIndex: 60 }); }
+});
+
+/* Contagem regressiva */
+const target = new Date(CONFIG.inicio).getTime();
+const cdEls = { d: $('#cd-d'), h: $('#cd-h'), m: $('#cd-m'), s: $('#cd-s') };
+const pad = n => String(n).padStart(2, '0');
+function tick() {
+  const diff = target - Date.now();
+  if (diff <= 0) { $('#cd').innerHTML = `<p class="today">${diff > -864e5 ? 'É hoje, parceiro! 🤠' : 'Foi demais! Obrigado, parceiros 🤠'}</p>`; clearInterval(timer); return; }
+  const v = { d: Math.floor(diff / 864e5), h: Math.floor(diff / 36e5) % 24, m: Math.floor(diff / 6e4) % 60, s: Math.floor(diff / 1e3) % 60 };
+  for (const k in v) {
+    const t = pad(v[k]), el = cdEls[k];
+    if (el.textContent !== t) { el.textContent = t; if (!reduce) { el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); } }
+  }
+}
+const timer = setInterval(tick, 1000); tick();
+
+/* Peãozômetro */
+const items = [...document.querySelectorAll('.item')];
+const levels = [[0, 'Forasteiro 🌵'], [1, 'Aprendiz de peão 🐴'], [3, 'Peão de respeito 🤠'], [5, 'Quase xerife ⭐'], [6, 'XERIFE DA FESTA! 🌟']];
+let lastLevel = '';
+items.forEach(b => b.addEventListener('click', () => {
+  b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true');
+  const n = items.filter(i => i.getAttribute('aria-pressed') === 'true').length;
+  const pct = Math.round(n / items.length * 100);
+  $('#meterFill').style.width = Math.max(4, pct) + '%';
+  $('#meterPct').textContent = pct + '%';
+  $('#meterBar').setAttribute('aria-valuenow', pct);
+  const lvl = levels.filter(l => n >= l[0]).pop()[1];
+  const el = $('#level');
+  if (lvl !== lastLevel) { el.textContent = lvl; el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); lastLevel = lvl; }
+  if (n === items.length) boom({ particleCount: 120 });
+}));
+const lookList = () => items.filter(i => i.getAttribute('aria-pressed') === 'true').map(i => i.dataset.item);
+const listPt = a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' e ' + a[a.length - 1];
+
+/* RSVP */
+const count = { adultos: 1, criancas: 0 };
+document.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.target;
+  count[k] = Math.min(20, Math.max(0, count[k] + Number(b.dataset.step)));
+  $('#' + k).textContent = count[k];
+}));
+const nome = $('#nome');
+function getName() {
+  const v = nome.value.trim();
+  const f = $('#nomeField');
+  if (!v) { f.classList.remove('err'); void f.offsetWidth; f.classList.add('err'); $('#nomeErr').hidden = false; nome.focus(); return null; }
+  f.classList.remove('err'); $('#nomeErr').hidden = true; return v;
+}
+nome.addEventListener('input', () => { if (nome.value.trim()) { $('#nomeField').classList.remove('err'); $('#nomeErr').hidden = true; } });
+function openWA(text) {
+  const url = 'https://api.whatsapp.com/send?phone=' + CONFIG.whatsapp + '&text=' + encodeURIComponent(text);
+  const w = window.open(url, '_blank');
+  if (w) w.opener = null; else location.href = url;
+}
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const n = getName(); if (!n) return;
+  if (count.adultos + count.criancas === 0) { count.adultos = 1; $('#adultos').textContent = 1; }
+  let t = `Oi! 🤠 Aqui é ${n}.\nConfirmo presença no aniversário de 1 ano do Arthur, domingo (29/11) às 15h!\n\n👤 Adultos: ${count.adultos}\n🧒 Crianças: ${count.criancas}`;
+  const look = lookList(); if (look.length) t += `\n🤠 Meu look country: ${listPt(look)}`;
+  const r = $('#recado').value.trim(); if (r) t += `\n\n💬 Recado pro Arthur: ${r}`;
+  openWA(t);
+  $('#stamp').classList.add('show');
+  $('#btnYesTxt').textContent = 'Presença confirmada! Abrindo WhatsApp…';
+  boom({ particleCount: 140 });
+});
+$('#btnNo').addEventListener('click', () => {
+  const n = getName(); if (!n) return;
+  let t = `Oi! Aqui é ${n}. Infelizmente não vou conseguir ir ao aniversário de 1 ano do Arthur 😢\nMando um abraço apertado e muitas felicidades pro peãozinho! 🤠`;
+  const r = $('#recado').value.trim(); if (r) t += `\n\n💬 Recado pro Arthur: ${r}`;
+  openWA(t);
+});
+
+/* Agenda */
+const cal = $('#cal');
+if (/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) { cal.href = '../arthur.ics'; cal.removeAttribute('target'); }
+else cal.href = 'https://calendar.google.com/calendar/render?' + new URLSearchParams({ action: 'TEMPLATE', text: 'Aniversário de 1 ano do Arthur 🤠', dates: '20261129T180000Z/20261129T220000Z', details: 'Festa country, venha caracterizado! Convite: ' + location.href.split('#')[0], location: CONFIG.local }).toString();
+
+/* Revelar ao rolar + botão flutuante */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const fab = $('#fab'); let rsvpVisible = false;
+new IntersectionObserver(([e]) => { rsvpVisible = e.isIntersecting; updFab(); }, { threshold: .05 }).observe($('#rsvp'));
+function updFab() { fab.classList.toggle('show', opened && scrollY > 380 && !rsvpVisible); }
+addEventListener('scroll', updFab, { passive: true });
+</script>
+</body>
+</html>

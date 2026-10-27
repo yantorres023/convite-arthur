@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>1º Rodeio do Arthur · Ingresso VIP</title>
+<meta name="description" content="1º Rodeio do Arthur! Domingo, 29 de novembro, às 15h. Festa country, venha caracterizado e garanta seu ingresso.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="🎟️ Ingresso VIP: 1º Rodeio do Arthur">
+<meta property="og:description" content="Domingo, 29/11, às 15h · Festa country, venha caracterizado! Raspe o ingresso e confirme presença.">
+<meta property="og:image" content="https://yantorres023.github.io/convite-arthur/rodeio/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#0e1830">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=Rye&family=Ultra&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0e1830; --denim:#1b2c50; --denim-2:#27406f; --gold:#e5b54a; --gold-2:#f6dc8a; --gold-3:#a8761f;
+  --cream:#f5ead6; --leather:#7a4b22; --leather-2:#4a2c12; --red:#c8402e; --ink:#21160a; --muted:#b9c3da;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Barlow,system-ui,sans-serif;color:var(--cream);overflow-x:hidden;min-height:100vh;
+  background-color:#16264a;
+  background-image:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px),
+    repeating-linear-gradient(-45deg,rgba(0,0,0,.09) 0 1px,transparent 1px 5px),
+    linear-gradient(#0b1428,#17284c 30%,#1b2f58 70%,#14234a)}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+.cond{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.14em}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:96px 16px 70px;overflow:hidden}
+.lights{position:absolute;top:0;left:0;width:100%;height:80px;z-index:3;overflow:visible}
+.bulb{animation:glow 2.4s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:1}50%{opacity:.45}}
+.beam{position:absolute;top:-6%;width:70vw;max-width:520px;height:115%;z-index:0;pointer-events:none;transform-origin:50% 0;
+  background:linear-gradient(rgba(246,220,138,.22),rgba(246,220,138,0) 75%);clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);
+  animation:sweep 7s ease-in-out infinite alternate}
+.beam.b1{left:-22vw;--a:-24deg;--b:6deg}
+.beam.b2{right:-22vw;--a:24deg;--b:-6deg;animation-delay:-3.5s}
+@keyframes sweep{from{transform:rotate(var(--a))}to{transform:rotate(var(--b))}}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;z-index:0;animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}
+.ember{position:absolute;bottom:-10px;width:5px;height:5px;border-radius:50%;background:var(--gold-2);box-shadow:0 0 8px var(--gold);z-index:1;opacity:0;
+  animation:rise linear infinite}
+@keyframes rise{0%{opacity:0;transform:translate(0,0)}10%{opacity:.9}100%{opacity:0;transform:translate(var(--dx),-90vh)}}
+.hero>*{position:relative;z-index:2}
+.kicker{font-size:.9rem;color:var(--gold-2);animation:fadeUp .8s .2s both}
+.lasso{width:min(76vw,330px);margin:10px auto -6px;overflow:visible}
+.rope-draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s .5s cubic-bezier(.6,0,.3,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.one{opacity:0;transform-origin:150px 140px;animation:stampIn .8s .2s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes stampIn{from{opacity:0;transform:scale(2.2)}to{opacity:1;transform:scale(1)}}
+.rodeio{font:400 clamp(1.5rem,7vw,2.2rem) Rye,serif;color:var(--cream);margin-top:4px;animation:fadeUp .8s 1s both;text-shadow:0 3px 0 rgba(0,0,0,.4)}
+.name{font:400 clamp(3rem,15.5vw,6.6rem)/1 Ultra,serif;letter-spacing:.02em;white-space:nowrap;margin-top:4px;
+  background-image:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.9) 50%,transparent 65%),linear-gradient(180deg,#fff4cc 0%,#f6dc8a 38%,#e5b54a 58%,#a8761f 100%);
+  background-size:250% 100%,100% 100%;background-position:150% 0,0 0;background-repeat:no-repeat;
+  -webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 5px 0 #4a2c12) drop-shadow(0 12px 18px rgba(0,0,0,.45));
+  animation:fadeUp .9s 1.2s both,shine 4.5s 2.4s ease-in-out infinite}
+@keyframes shine{0%,60%{background-position:150% 0,0 0}100%{background-position:-60% 0,0 0}}
+.tagline{font-size:1.1rem;line-height:1.5;max-width:28ch;margin-top:14px;color:var(--muted);animation:fadeUp .8s 1.5s both}
+.tagline strong{color:var(--cream)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}}
+.cta-down{display:inline-flex;align-items:center;gap:8px;margin-top:28px;padding:13px 24px;border-radius:40px;border:2px solid var(--gold);
+  color:var(--gold-2);text-decoration:none;font:600 1rem 'Barlow Condensed';letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(229,181,74,.08);animation:fadeUp .8s 1.8s both,pulse 2.4s 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(229,181,74,.45)}50%{box-shadow:0 0 0 12px rgba(229,181,74,0)}}
+
+/* ---------- Seções ---------- */
+main{max-width:560px;margin:0 auto;padding:10px 16px 140px;display:flex;flex-direction:column;gap:64px}
+.sec-title{font:400 clamp(1.7rem,8vw,2.3rem)/1.1 Rye,serif;text-align:center;color:var(--gold-2);text-shadow:0 3px 0 rgba(0,0,0,.35)}
+.sec-sub{text-align:center;color:var(--muted);font-size:1.02rem;line-height:1.5;margin:10px auto 0;max-width:34ch}
+.reveal{opacity:0;transform:translateY(46px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* Ingresso */
+.ticket-float{margin-top:22px;animation:tfloat 5s ease-in-out infinite;perspective:1000px}
+@keyframes tfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.ticket{position:relative;color:var(--ink);border-radius:18px;transform-style:preserve-3d;transition:transform .25s ease-out;
+  filter:drop-shadow(0 22px 30px rgba(0,0,0,.5))}
+.t-main{position:relative;padding:20px 20px 22px;border-radius:18px 18px 6px 6px;
+  background:radial-gradient(ellipse at 30% 0%,#fffaf0,#f3e5c8 70%,#e8d3a8);overflow:hidden}
+.t-main::before{content:"";position:absolute;inset:8px;border:2px dashed rgba(122,75,34,.45);border-radius:12px;pointer-events:none}
+.t-main::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(-45deg,rgba(122,75,34,.035) 0 2px,transparent 2px 8px)}
+.t-top{display:flex;justify-content:space-between;font:700 .82rem 'Barlow Condensed';letter-spacing:.18em;color:var(--leather)}
+.t-top .vip{background:var(--leather);color:var(--gold-2);padding:3px 10px;border-radius:20px}
+.t-title{font:400 clamp(1.5rem,7.4vw,2rem)/1.1 Ultra,serif;text-align:center;margin-top:14px;color:var(--leather-2)}
+.t-title small{display:block;font:400 .95rem Rye,serif;color:var(--red);margin-bottom:4px}
+.scratch-area{position:relative;margin:16px auto 0;height:118px;border-radius:14px;overflow:hidden;background:#fff8ea;box-shadow:inset 0 0 0 2px rgba(122,75,34,.25)}
+.scratch-under{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-around;padding:0 10px}
+.scratch-under span{font:700 1.15rem 'Barlow Condensed';letter-spacing:.14em;color:var(--leather)}
+.scratch-under b{font:400 clamp(2.2rem,11vw,3rem) Ultra,serif;color:var(--red)}
+#scratch{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair;transition:opacity .7s ease}
+#scratch.done{opacity:0;pointer-events:none}
+.t-hint{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;font-size:.9rem;color:var(--leather)}
+.t-hint button{border:0;background:none;color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:.9rem}
+.t-rows{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-top:16px}
+.t-rows div{background:rgba(122,75,34,.08);border-radius:10px;padding:8px 10px}
+.t-rows small{display:block;font:700 .72rem 'Barlow Condensed';letter-spacing:.16em;text-transform:uppercase;color:var(--leather)}
+.t-rows b{display:block;font-weight:600;font-size:.98rem;color:var(--ink);line-height:1.3}
+.t-rows a{color:var(--red)}
+.t-stub{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-radius:6px 6px 18px 18px;
+  background:linear-gradient(#e5b54a,#c7922e);border-top:3px dashed rgba(33,22,10,.35)}
+.t-stub::before,.t-stub::after{content:"";position:absolute;top:-15px;width:28px;height:28px;border-radius:50%;background:#17284c;box-shadow:inset 0 0 6px rgba(0,0,0,.5)}
+.t-stub::before{left:-14px}.t-stub::after{right:-14px}
+.stub-text{font:700 .78rem 'Barlow Condensed';letter-spacing:.16em;color:var(--leather-2);line-height:1.3}
+.barcode{width:110px;height:38px;flex:none;background:repeating-linear-gradient(90deg,#21160a 0 2px,transparent 2px 4px,#21160a 4px 7px,transparent 7px 8px,#21160a 8px 9px,transparent 9px 12px)}
+
+/* Contagem */
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.flip{position:relative;text-align:center;border-radius:12px;padding:14px 0 10px;perspective:300px;
+  background:linear-gradient(#3d2814 0 50%,#2c1c0d 50%);box-shadow:inset 0 0 0 2px rgba(229,181,74,.35),0 10px 18px rgba(0,0,0,.4)}
+.flip::after{content:"";position:absolute;left:0;right:0;top:calc(50% - 8px);height:2px;background:rgba(0,0,0,.5)}
+.flip b{display:block;font:400 clamp(1.8rem,9vw,2.6rem)/1.15 Ultra,serif;color:var(--gold-2);text-shadow:0 2px 0 #000}
+.flip b.tick{animation:flipIn .5s cubic-bezier(.3,1.4,.5,1)}
+@keyframes flipIn{from{transform:rotateX(-90deg);opacity:.2}}
+.flip span{font:600 .74rem 'Barlow Condensed';letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.today{grid-column:1/-1;text-align:center;font:400 2rem Rye,serif;color:var(--gold-2)}
+
+/* Personagens */
+.chars{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.char{position:relative;border:0;cursor:pointer;border-radius:16px;padding:14px 4px 10px;color:var(--gold-2);
+  background:linear-gradient(#22375f,#1a2b4d);box-shadow:inset 0 0 0 2px rgba(229,181,74,.25),0 8px 16px rgba(0,0,0,.3);
+  transition:transform .35s cubic-bezier(.3,1.6,.5,1),background .3s,color .3s,box-shadow .3s,opacity .3s}
+.char::before{content:"";position:absolute;inset:5px;border:1.5px dashed rgba(229,181,74,.35);border-radius:12px;pointer-events:none}
+.char svg{width:46px;height:46px;display:block;margin:0 auto 6px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s cubic-bezier(.3,1.8,.5,1)}
+.char span{font:700 .92rem 'Barlow Condensed';letter-spacing:.08em;text-transform:uppercase;color:var(--cream)}
+.char:hover{transform:translateY(-4px)}
+.chars.has-pick .char:not([aria-checked="true"]){opacity:.55}
+.char[aria-checked="true"]{transform:translateY(-6px) scale(1.04);color:var(--leather-2);background:linear-gradient(#fbe7a6,#e5b54a);
+  box-shadow:0 0 0 3px var(--gold-2),0 0 26px rgba(246,220,138,.55),0 12px 22px rgba(0,0,0,.4)}
+.char[aria-checked="true"] span{color:var(--leather-2)}
+.char[aria-checked="true"]::before{border-color:rgba(74,44,18,.35)}
+.char[aria-checked="true"] svg{transform:rotate(-10deg) scale(1.12)}
+.char-tip{margin-top:18px;padding:14px 16px;border-radius:14px;background:rgba(229,181,74,.1);border:1px solid rgba(229,181,74,.3);
+  color:var(--cream);line-height:1.5;text-align:center;min-height:3.4em}
+.char-tip b{color:var(--gold-2)}
+.char-tip.swap{animation:fadeUp .45s ease}
+
+/* RSVP */
+.rsvp{position:relative;padding:28px 20px 26px;border-radius:22px;color:var(--cream);
+  background:radial-gradient(ellipse at 50% 0%,#8a5629,#6a3f1b 60%,#4f2e13);
+  box-shadow:inset 0 0 40px rgba(0,0,0,.35),0 20px 40px rgba(0,0,0,.45)}
+.rsvp::before{content:"";position:absolute;inset:8px;border:2px dashed rgba(246,220,138,.55);border-radius:16px;pointer-events:none}
+.rsvp .sec-title{color:var(--gold-2)}
+.rsvp .sec-sub{color:#f0dcc0}
+.field{display:block;margin-top:16px;font:600 .85rem 'Barlow Condensed';letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2)}
+.field input,.field textarea{display:block;width:100%;margin-top:6px;font:500 1.05rem Barlow,sans-serif;color:var(--ink);letter-spacing:0;text-transform:none;
+  background:var(--cream);border:2px solid transparent;border-radius:12px;padding:13px 14px;outline:none;resize:vertical;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(229,181,74,.3)}
+.field.err input{border-color:#ff7a66;background:#fff1ec;animation:shakeX .45s}
+@keyframes shakeX{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.err-msg{display:block;margin-top:6px;color:#ffd0c4;font:500 .88rem Barlow;letter-spacing:0;text-transform:none}
+.err-msg[hidden]{display:none}
+.steppers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.stepper{border-radius:14px;padding:10px 4px;text-align:center;background:rgba(0,0,0,.2);box-shadow:inset 0 0 0 1px rgba(246,220,138,.25)}
+.stepper>span{display:block;font:600 .85rem 'Barlow Condensed';letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2)}
+.stepper>div{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:6px}
+.stepper button{width:36px;height:36px;flex:none;border-radius:50%;border:0;cursor:pointer;font:700 1.3rem/1 Barlow;color:var(--leather-2);
+  background:linear-gradient(#f6dc8a,#e5b54a);box-shadow:0 3px 0 var(--gold-3);transition:transform .12s}
+.stepper button:active{transform:translateY(3px);box-shadow:none}
+.stepper output{font:400 1.7rem Ultra,serif;min-width:1.3em;color:var(--cream)}
+.picked{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.2);
+  box-shadow:inset 0 0 0 1px rgba(246,220,138,.25);font-size:.98rem}
+.picked a{color:var(--gold-2);font-weight:600;white-space:nowrap}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;cursor:pointer;text-decoration:none;border-radius:14px}
+.btn-yes{margin-top:22px;padding:17px 14px;font:700 1.15rem 'Barlow Condensed';letter-spacing:.12em;text-transform:uppercase;color:var(--leather-2);
+  background:linear-gradient(#fff0b8,#f6dc8a 40%,#e5b54a);box-shadow:0 6px 0 var(--gold-3),0 14px 24px rgba(0,0,0,.35);transition:transform .12s,box-shadow .12s;position:relative;overflow:hidden}
+.btn-yes::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent);transform:skewX(-20deg);animation:sweepBtn 3.2s ease-in-out infinite}
+@keyframes sweepBtn{0%,60%{left:-60%}100%{left:130%}}
+.btn-yes:active{transform:translateY(5px);box-shadow:0 1px 0 var(--gold-3)}
+.btn-yes svg{width:24px;height:24px;flex:none}
+.btn-no{margin-top:12px;padding:10px;background:none;color:#f0dcc0;font:500 .98rem Barlow;text-decoration:underline;text-underline-offset:4px}
+.btn-cal{margin-top:4px;padding:12px;color:var(--gold-2);font:600 .95rem 'Barlow Condensed';letter-spacing:.12em;text-transform:uppercase;border:2px dashed rgba(246,220,138,.5)}
+.toast{display:none;margin-top:16px;padding:14px;border-radius:14px;background:rgba(246,220,138,.15);border:1px solid var(--gold);color:var(--gold-2);font-weight:600;text-align:center}
+.toast.show{display:block;animation:fadeUp .5s ease}
+
+footer{text-align:center}
+footer svg{width:54px;height:54px;display:block;margin:0 auto 10px;animation:tfloat 3s ease-in-out infinite}
+footer p{font:400 1.6rem Rye,serif;color:var(--gold-2)}
+footer small{display:block;margin-top:8px;font:600 .8rem 'Barlow Condensed';letter-spacing:.24em;color:var(--muted)}
+
+.fab{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));z-index:30;display:flex;align-items:center;gap:8px;padding:13px 22px;border-radius:40px;
+  background:linear-gradient(#f6dc8a,#e5b54a);color:var(--leather-2);font:700 1rem 'Barlow Condensed';letter-spacing:.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;
+  box-shadow:0 5px 0 var(--gold-3),0 10px 26px rgba(0,0,0,.45);transform:translate(-50%,170%);transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.fab.show{transform:translate(-50%,0)}
+
+@media (min-width:700px){ .chars{gap:14px} }
+@media (min-width:700px) and (max-height:760px){ .hero{padding-top:84px} .lasso{width:230px} .name{font-size:5.2rem} .tagline{margin-top:8px} .cta-down{margin-top:16px} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rope-draw{stroke-dashoffset:0}.one{opacity:1}
+}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}#scratch{display:none}</style></noscript>
+</head>
+<body>
+
+<header class="hero" id="hero">
+  <svg class="lights" id="lights" aria-hidden="true"></svg>
+  <span class="beam b1" aria-hidden="true"></span><span class="beam b2" aria-hidden="true"></span>
+  <div id="sky" aria-hidden="true"></div>
+
+  <p class="kicker cond">★ Você está convidado para o ★</p>
+  <svg class="lasso" viewBox="0 0 300 250" aria-hidden="true">
+    <defs>
+      <linearGradient id="goldText" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff4cc"/><stop offset=".4" stop-color="#f6dc8a"/><stop offset=".6" stop-color="#e5b54a"/><stop offset="1" stop-color="#a8761f"/></linearGradient>
+      <mask id="ropeMask" maskUnits="userSpaceOnUse" x="-40" y="-60" width="380" height="340">
+        <path class="rope-draw" pathLength="1" d="M150 34C240 30 284 84 276 140c-8 60-66 96-130 94C76 232 22 194 22 132 22 74 76 38 150 34c46-2 78-16 102-36" fill="none" stroke="#fff" stroke-width="20"/>
+      </mask>
+    </defs>
+    <g class="one">
+      <text x="150" y="196" text-anchor="middle" font-family="Ultra" font-size="168" fill="url(#goldText)" stroke="#4a2c12" stroke-width="6" paint-order="stroke">1<tspan font-size="58" dy="-92">º</tspan></text>
+    </g>
+    <g mask="url(#ropeMask)" fill="none" stroke-linecap="round">
+      <path d="M150 34C240 30 284 84 276 140c-8 60-66 96-130 94C76 232 22 194 22 132 22 74 76 38 150 34c46-2 78-16 102-36" stroke="#3a240f" stroke-width="12" opacity=".5" transform="translate(0 4)"/>
+      <path d="M150 34C240 30 284 84 276 140c-8 60-66 96-130 94C76 232 22 194 22 132 22 74 76 38 150 34c46-2 78-16 102-36" stroke="#cfa264" stroke-width="10"/>
+      <path d="M150 34C240 30 284 84 276 140c-8 60-66 96-130 94C76 232 22 194 22 132 22 74 76 38 150 34c46-2 78-16 102-36" stroke="#8a6232" stroke-width="10" stroke-dasharray="3 6"/>
+      <path d="M150 34C240 30 284 84 276 140c-8 60-66 96-130 94C76 232 22 194 22 132 22 74 76 38 150 34c46-2 78-16 102-36" stroke="#f6e0b0" stroke-width="2" opacity=".55" transform="translate(-1 -2)"/>
+      <ellipse cx="150" cy="34" rx="11" ry="8" stroke="#8a6232" stroke-width="5"/>
+    </g>
+  </svg>
+  <p class="rodeio">Rodeio do</p>
+  <h1 class="name">ARTHUR</h1>
+  <p class="tagline">Peões, cowgirls e xerifes: preparem as botas! O Arthur faz <strong>1 ano</strong> e a arena vai ferver.</p>
+  <a class="cta-down" href="#ingresso">🎟️ Pegue seu ingresso</a>
+</header>
+
+<main>
+  <!-- Ingresso -->
+  <section id="ingresso" class="reveal" aria-labelledby="t-ing">
+    <h2 class="sec-title" id="t-ing">Seu ingresso VIP</h2>
+    <p class="sec-sub">Raspe o dourado para descobrir quando a porteira abre!</p>
+    <div class="ticket-float">
+      <div class="ticket" id="ticket">
+        <div class="t-main">
+          <div class="t-top"><span class="vip">ENTRADA VIP</span><span>Nº 0001</span></div>
+          <p class="t-title"><small>~ aniversário de 1 ano ~</small>1º Rodeio do Arthur</p>
+          <div class="scratch-area" id="scratchArea">
+            <div class="scratch-under" aria-label="Domingo, 29 de novembro, às 15 horas"><span>DOM</span><b>29.11</b><span>15H</span></div>
+            <canvas id="scratch" aria-hidden="true"></canvas>
+          </div>
+          <p class="t-hint" id="hint"><span id="hintTxt">✦ Raspe com o dedo ✦</span><button type="button" id="revealBtn">revelar</button></p>
+          <div class="t-rows">
+            <div><small>Traje</small><b>Country 🤠<br>venha caracterizado</b></div>
+            <div><small>Arena</small><b id="where">Endereço enviado na confirmação</b></div>
+          </div>
+        </div>
+        <div class="t-stub">
+          <span class="stub-text">ADMITE 1 PEÃO(A)<br>ARTHUR · 1 ANO</span>
+          <span class="barcode" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contagem -->
+  <section class="reveal" aria-labelledby="t-cd">
+    <h2 class="sec-title" id="t-cd">A porteira abre em</h2>
+    <div class="cd" id="cd">
+      <div class="flip"><b id="cd-d">00</b><span>dias</span></div>
+      <div class="flip"><b id="cd-h">00</b><span>horas</span></div>
+      <div class="flip"><b id="cd-m">00</b><span>min</span></div>
+      <div class="flip"><b id="cd-s">00</b><span>seg</span></div>
+    </div>
+  </section>
+
+  <!-- Personagens -->
+  <section class="reveal" aria-labelledby="t-chars">
+    <h2 class="sec-title" id="t-chars">Traje obrigatório: country!</h2>
+    <p class="sec-sub">Venha caracterizado! Escolha seu personagem: ele vai junto na sua confirmação.</p>
+    <div class="chars" id="chars" role="radiogroup" aria-label="Escolha seu personagem">
+      <button class="char" role="radio" aria-checked="false" data-char="Peão" data-emoji="🤠" data-tip="Chapéu, camisa xadrez, calça jeans e bota. O clássico que nunca falha!">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 41c-1-10 1-22 7-25 3-1 5 2 8 2s5-3 8-2c6 3 8 15 7 25-9 3-21 3-30 0z"/><path d="M18 35c9 2.5 19 2.5 28 0"/><path d="M4 38c4 4 14 7 28 7s24-3 28-7c2 2 0 8-6 11-6 3-14 4-22 4s-16-1-22-4C4 46 2 40 4 38z"/></svg>
+        <span>Peão</span>
+      </button>
+      <button class="char" role="radio" aria-checked="false" data-char="Cowgirl" data-emoji="👢" data-tip="Chapéu, bota de cano alto, saia ou short jeans e muita franja!">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 6h20v27c2 5 8 7 14 9 5 2 8 5 8 10v3H33l-3-3h-6v3H18z"/><path d="M18 12h20"/><path d="M28 20c-3-3-7 1-3 5l3 3 3-3c4-4 0-8-3-5z"/><path d="M38 22l6 2M38 28l6 2"/></svg>
+        <span>Cowgirl</span>
+      </button>
+      <button class="char" role="radio" aria-checked="false" data-char="Xerife" data-emoji="⭐" data-tip="Estrela no peito, colete, chapéu e cara de autoridade (de mentirinha)!">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><polygon points="32,6 39.5,19 54.5,19 47,32 54.5,45 39.5,45 32,58 24.5,45 9.5,45 17,32 9.5,19 24.5,19"/><circle cx="32" cy="32" r="7"/></svg>
+        <span>Xerife</span>
+      </button>
+      <button class="char" role="radio" aria-checked="false" data-char="Fazendeiro(a)" data-emoji="🌾" data-tip="Chapéu de palha, jardineira e um lenço no pescoço. Pronto pra colheita!">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 60V12"/><path d="M32 22c-6-1-9-6-9-11 6 1 9 6 9 11zM32 22c6-1 9-6 9-11-6 1-9 6-9 11zM32 34c-6-1-9-6-9-11 6 1 9 6 9 11zM32 34c6-1 9-6 9-11-6 1-9 6-9 11zM32 46c-6-1-9-6-9-11 6 1 9 6 9 11zM32 46c6-1 9-6 9-11-6 1-9 6-9 11z"/></svg>
+        <span>Fazendeiro</span>
+      </button>
+      <button class="char" role="radio" aria-checked="false" data-char="Fora da lei" data-emoji="🧣" data-tip="Bandana no rosto, colete escuro e cara de mau… só até o bolo chegar!">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="20"/><path d="M12 33h40L32 55z"/><path d="M25 25h.01M39 25h.01" stroke-width="5"/><path d="M8 18c8-4 40-4 48 0"/></svg>
+        <span>Fora da lei</span>
+      </button>
+      <button class="char" role="radio" aria-checked="false" data-char="Domador(a)" data-emoji="🐴" data-tip="Corda no ombro, cinto de fivela grande e bota de couro. Ninguém escapa do seu laço!">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="30" cy="24" rx="21" ry="13"/><path d="M42 34c5 6 3 12-3 16s-9 8-7 12"/><path d="M40 33l7 3"/></svg>
+        <span>Domador</span>
+      </button>
+    </div>
+    <p class="char-tip" id="charTip" aria-live="polite">Toque em um personagem para ver a dica de look ✨</p>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp reveal" id="rsvp" aria-labelledby="t-rsvp">
+    <h2 class="sec-title" id="t-rsvp">Garanta seu lugar na arena</h2>
+    <p class="sec-sub">Preencha e confirme direto no WhatsApp. Rapidinho, parceiro!</p>
+    <form id="form" novalidate>
+      <label class="field" id="nomeField">Seu nome (ou da família)
+        <input id="nome" autocomplete="name" placeholder="Ex.: Família Silva" maxlength="80">
+        <span class="err-msg" id="nomeErr" hidden>Conta pra gente quem é você 😉</span>
+      </label>
+      <div class="steppers">
+        <div class="stepper"><span>Adultos</span>
+          <div><button type="button" data-step="-1" data-target="adultos" aria-label="Menos um adulto">−</button><output id="adultos" aria-live="polite">1</output><button type="button" data-step="1" data-target="adultos" aria-label="Mais um adulto">+</button></div>
+        </div>
+        <div class="stepper"><span>Crianças</span>
+          <div><button type="button" data-step="-1" data-target="criancas" aria-label="Menos uma criança">−</button><output id="criancas" aria-live="polite">0</output><button type="button" data-step="1" data-target="criancas" aria-label="Mais uma criança">+</button></div>
+        </div>
+      </div>
+      <div class="picked"><span>Vou de: <b id="pickedTxt">ainda não escolhi</b></span><a href="#t-chars">escolher</a></div>
+      <label class="field">Recado pro aniversariante (opcional)
+        <textarea id="recado" rows="2" maxlength="300" placeholder="Parabéns, peãozinho!"></textarea>
+      </label>
+      <button class="btn btn-yes" type="submit">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>Confirmar no WhatsApp</span>
+      </button>
+      <button class="btn btn-no" type="button" id="btnNo">Não vou conseguir ir 😢</button>
+    </form>
+    <a class="btn btn-cal" id="cal" href="#" target="_blank" rel="noopener">📅 Salvar na agenda</a>
+    <p class="toast" id="toast" role="status">🎟️ Ingresso garantido! É só enviar a mensagem no WhatsApp.</p>
+  </section>
+
+  <footer>
+    <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="hs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff4cc"/><stop offset=".5" stop-color="#e5b54a"/><stop offset="1" stop-color="#a8761f"/></linearGradient></defs><path d="M14 8c-6 10-8 22-4 32 3 8 10 14 22 14s19-6 22-14c4-10 2-22-4-32h-9c5 9 7 19 4 27-2 5-6 8-13 8s-11-3-13-8c-3-8-1-18 4-27z" fill="url(#hs)" stroke="#4a2c12" stroke-width="2"/><g fill="#4a2c12"><circle cx="15" cy="20" r="1.8"/><circle cx="13" cy="31" r="1.8"/><circle cx="17" cy="41" r="1.8"/><circle cx="49" cy="20" r="1.8"/><circle cx="51" cy="31" r="1.8"/><circle cx="47" cy="41" r="1.8"/></g></svg>
+    <p>Te vejo na arena, parceiro!</p>
+    <small>ARTHUR · 1 ANO · 29.11.2026</small>
+  </footer>
+</main>
+
+<a class="fab" id="fab" href="#rsvp">🎟️ Confirmar presença</a>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+<script>
+/* ===== Ajuste aqui ===== */
+const CONFIG = {
+  whatsapp: '5531991692132',
+  inicio: '2026-11-29T15:00:00-03:00',
+  local: '',  // ex.: 'Rua das Flores, 123 – Bairro, Belo Horizonte'
+  mapa: ''    // link do Google Maps (opcional)
+};
+/* ======================= */
+const $ = s => document.querySelector(s);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function gold(n = 120, origin = { x: .5, y: .6 }) {
+  if (reduce || !window.confetti) return;
+  const o = { particleCount: n, spread: 100, startVelocity: 45, ticks: 240, colors: ['#f6dc8a', '#e5b54a', '#fff4cc', '#c8402e', '#ffffff'], shapes: ['star', 'circle'], origin, zIndex: 60 };
+  confetti(o); confetti({ ...o, particleCount: Math.round(n / 2), shapes: ['square'], scalar: .8 });
+}
+
+/* Endereço */
+if (CONFIG.local) {
+  const w = $('#where'); w.textContent = CONFIG.local;
+  if (CONFIG.mapa) { const a = document.createElement('a'); a.href = CONFIG.mapa; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Ver no mapa'; w.append(document.createElement('br'), a); }
+}
+
+/* Varal de luzes */
+function buildLights() {
+  const svg = $('#lights'), W = svg.clientWidth || innerWidth, spans = Math.max(2, Math.round(W / 210)), seg = W / spans, sag = 30;
+  const colors = ['#ffe9a8', '#f6dc8a', '#ffb347', '#ffe9a8', '#ff8a5c'];
+  let wire = '', bulbs = '', k = 0;
+  for (let s = 0; s < spans; s++) {
+    const x0 = s * seg;
+    wire += `M${x0},4 Q${x0 + seg / 2},${4 + sag * 2} ${x0 + seg},4 `;
+    const n = Math.max(3, Math.round(seg / 36));
+    for (let i = 1; i < n; i++) {
+      const t = i / n, x = x0 + seg * t, y = 4 + 4 * sag * t * (1 - t), c = colors[k++ % colors.length];
+      bulbs += `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><rect x="-3" y="0" width="6" height="6" rx="1" fill="#2a2a2a"/>`
+        + `<ellipse class="bulb" cx="0" cy="13" rx="5.5" ry="8" fill="${c}" style="animation-delay:${(-Math.random() * 2.4).toFixed(2)}s;filter:drop-shadow(0 0 6px ${c})"/></g>`;
+    }
+  }
+  svg.setAttribute('viewBox', `0 0 ${W} 80`);
+  svg.innerHTML = `<path d="${wire}" fill="none" stroke="#1a1a1a" stroke-width="2"/>${bulbs}`;
+}
+buildLights();
+let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(buildLights, 200); });
+
+/* Estrelas e brasas */
+(() => {
+  const sky = $('#sky'), hero = $('#hero');
+  for (let i = 0; i < 36; i++) {
+    const s = document.createElement('span'); s.className = 'star';
+    s.style.cssText = `left:${Math.random() * 100}%;top:${8 + Math.random() * 60}%;animation-delay:${(-Math.random() * 3).toFixed(2)}s;animation-duration:${(2 + Math.random() * 3).toFixed(2)}s;opacity:.5`;
+    if (Math.random() > .8) { s.style.width = s.style.height = '4px'; }
+    hero.append(s);
+  }
+  if (reduce) return;
+  for (let i = 0; i < 14; i++) {
+    const e = document.createElement('span'); e.className = 'ember';
+    e.style.cssText = `left:${Math.random() * 100}%;--dx:${(Math.random() * 80 - 40).toFixed(0)}px;animation-duration:${(7 + Math.random() * 7).toFixed(1)}s;animation-delay:${(-Math.random() * 12).toFixed(1)}s;transform:scale(${(.5 + Math.random()).toFixed(2)})`;
+    hero.append(e);
+  }
+})();
+
+/* Raspadinha */
+const canvas = $('#scratch'), ctx = canvas.getContext('2d');
+let scratched = false, drawing = false, last = null, moves = 0;
+function paintFoil() {
+  const r = canvas.getBoundingClientRect(), dpr = Math.min(2, devicePixelRatio || 1);
+  canvas.width = Math.round(r.width * dpr); canvas.height = Math.round(r.height * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.globalCompositeOperation = 'source-over';
+  const g = ctx.createLinearGradient(0, 0, r.width, r.height);
+  g.addColorStop(0, '#b8862b'); g.addColorStop(.3, '#f6dc8a'); g.addColorStop(.5, '#d9a23a'); g.addColorStop(.75, '#fff0b8'); g.addColorStop(1, '#a8761f');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, r.width, r.height);
+  for (let i = 0; i < 260; i++) { ctx.fillStyle = `rgba(255,255,255,${Math.random() * .35})`; ctx.fillRect(Math.random() * r.width, Math.random() * r.height, 1.5, 1.5); }
+  ctx.fillStyle = 'rgba(74,44,18,.75)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.font = '400 22px Ultra, serif'; ctx.fillText('RASPE AQUI', r.width / 2, r.height / 2 - 8);
+  ctx.font = '600 13px "Barlow Condensed", sans-serif'; ctx.fillText('✦  ✦  ✦  data secreta  ✦  ✦  ✦', r.width / 2, r.height / 2 + 18);
+  ctx.globalCompositeOperation = 'destination-out'; ctx.lineCap = ctx.lineJoin = 'round'; ctx.lineWidth = 34;
+}
+function pos(e) { return { x: e.offsetX, y: e.offsetY }; }
+function scratchTo(p) {
+  ctx.beginPath(); ctx.moveTo((last || p).x, (last || p).y); ctx.lineTo(p.x, p.y); ctx.stroke();
+  ctx.beginPath(); ctx.arc(p.x, p.y, 17, 0, Math.PI * 2); ctx.fill();
+  last = p; if (++moves % 8 === 0) checkDone();
+}
+function checkDone() {
+  const { width: w, height: h } = canvas; const data = ctx.getImageData(0, 0, w, h).data; let clear = 0, total = 0;
+  for (let y = 0; y < h; y += 8) for (let x = 0; x < w; x += 8) { total++; if (data[(y * w + x) * 4 + 3] < 40) clear++; }
+  if (clear / total > .45) revealDate();
+}
+function revealDate() {
+  if (scratched) return; scratched = true; canvas.classList.add('done');
+  $('#hintTxt').textContent = '🤠 Anotou? Te esperamos lá!'; $('#revealBtn').remove();
+  const r = $('#scratchArea').getBoundingClientRect();
+  gold(110, { x: (r.left + r.width / 2) / innerWidth, y: (r.top + r.height / 2) / innerHeight });
+}
+canvas.addEventListener('pointerdown', e => { if (scratched) return; drawing = true; last = null; canvas.setPointerCapture(e.pointerId); scratchTo(pos(e)); $('#ticket').style.transform = ''; });
+canvas.addEventListener('pointermove', e => { if (drawing) scratchTo(pos(e)); });
+['pointerup', 'pointercancel', 'pointerleave'].forEach(t => canvas.addEventListener(t, () => { if (drawing) { drawing = false; last = null; checkDone(); } }));
+$('#revealBtn').addEventListener('click', revealDate);
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(paintFoil);
+addEventListener('resize', () => { if (!scratched) paintFoil(); });
+
+/* Inclinação 3D do ingresso (mouse) */
+const ticket = $('#ticket'), tWrap = $('.ticket-float');
+tWrap.addEventListener('pointermove', e => {
+  if (e.pointerType !== 'mouse' || drawing || reduce) return;
+  const r = tWrap.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+  ticket.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 10}deg)`;
+});
+tWrap.addEventListener('pointerleave', () => ticket.style.transform = '');
+
+/* Contagem regressiva */
+const target = new Date(CONFIG.inicio).getTime();
+const cdEls = { d: $('#cd-d'), h: $('#cd-h'), m: $('#cd-m'), s: $('#cd-s') };
+const pad = n => String(n).padStart(2, '0');
+function tick() {
+  const diff = target - Date.now();
+  if (diff <= 0) { $('#cd').innerHTML = `<p class="today">${diff > -864e5 ? 'É hoje, parceiro! 🤠' : 'Foi épico! Valeu, parceiros 🤠'}</p>`; clearInterval(timer); return; }
+  const v = { d: Math.floor(diff / 864e5), h: Math.floor(diff / 36e5) % 24, m: Math.floor(diff / 6e4) % 60, s: Math.floor(diff / 1e3) % 60 };
+  for (const k in v) { const t = pad(v[k]), el = cdEls[k]; if (el.textContent !== t) { el.textContent = t; if (!reduce) { el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); } } }
+}
+const timer = setInterval(tick, 1000); tick();
+
+/* Personagens */
+const chars = [...document.querySelectorAll('.char')];
+let pick = null;
+chars.forEach(c => c.addEventListener('click', () => {
+  chars.forEach(o => o.setAttribute('aria-checked', o === c));
+  $('#chars').classList.add('has-pick'); pick = c;
+  const tip = $('#charTip'); tip.innerHTML = `<b>${c.dataset.emoji} ${c.dataset.char}:</b> ${c.dataset.tip}`;
+  tip.classList.remove('swap'); void tip.offsetWidth; tip.classList.add('swap');
+  $('#pickedTxt').textContent = `${c.dataset.char} ${c.dataset.emoji}`;
+  if (window.confetti && !reduce) { const r = c.getBoundingClientRect(); confetti({ particleCount: 26, spread: 70, startVelocity: 24, ticks: 90, shapes: ['star'], colors: ['#f6dc8a', '#e5b54a'], origin: { x: (r.left + r.width / 2) / innerWidth, y: (r.top + r.height / 3) / innerHeight }, zIndex: 60 }); }
+}));
+chars.forEach((c, i) => c.addEventListener('keydown', e => {
+  const d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+  if (d) { e.preventDefault(); const n = chars[(i + d + chars.length) % chars.length]; n.focus(); n.click(); }
+}));
+
+/* RSVP */
+const count = { adultos: 1, criancas: 0 };
+document.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.target; count[k] = Math.min(20, Math.max(0, count[k] + Number(b.dataset.step))); $('#' + k).textContent = count[k];
+}));
+const nome = $('#nome');
+function getName() {
+  const v = nome.value.trim(), f = $('#nomeField');
+  if (!v) { f.classList.remove('err'); void f.offsetWidth; f.classList.add('err'); $('#nomeErr').hidden = false; nome.focus(); return null; }
+  f.classList.remove('err'); $('#nomeErr').hidden = true; return v;
+}
+nome.addEventListener('input', () => { if (nome.value.trim()) { $('#nomeField').classList.remove('err'); $('#nomeErr').hidden = true; } });
+function openWA(text) {
+  const url = 'https://api.whatsapp.com/send?phone=' + CONFIG.whatsapp + '&text=' + encodeURIComponent(text);
+  const w = window.open(url, '_blank'); if (w) w.opener = null; else location.href = url;
+}
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const n = getName(); if (!n) return;
+  if (count.adultos + count.criancas === 0) { count.adultos = 1; $('#adultos').textContent = 1; }
+  let t = `Oi! 🤠 Aqui é ${n}.\nConfirmo presença no 1º Rodeio do Arthur (aniversário de 1 ano), domingo (29/11) às 15h!\n\n👤 Adultos: ${count.adultos}\n🧒 Crianças: ${count.criancas}`;
+  if (pick) t += `\n🎭 Vou de: ${pick.dataset.char} ${pick.dataset.emoji}`;
+  const r = $('#recado').value.trim(); if (r) t += `\n\n💬 Recado pro Arthur: ${r}`;
+  openWA(t);
+  $('#toast').classList.add('show'); gold(160);
+});
+$('#btnNo').addEventListener('click', () => {
+  const n = getName(); if (!n) return;
+  let t = `Oi! Aqui é ${n}. Infelizmente não vou conseguir ir ao 1º Rodeio do Arthur 😢\nMando um abraço apertado e muitas felicidades pelo 1 ano! 🤠`;
+  const r = $('#recado').value.trim(); if (r) t += `\n\n💬 Recado pro Arthur: ${r}`;
+  openWA(t);
+});
+
+/* Agenda */
+const cal = $('#cal');
+if (/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) { cal.href = '../arthur.ics'; cal.removeAttribute('target'); }
+else cal.href = 'https://calendar.google.com/calendar/render?' + new URLSearchParams({ action: 'TEMPLATE', text: '1º Rodeio do Arthur (1 ano) 🤠', dates: '20261129T180000Z/20261129T220000Z', details: 'Festa country, venha caracterizado! Convite: ' + location.href.split('#')[0], location: CONFIG.local }).toString();
+
+/* Revelar ao rolar + botão flutuante */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const fab = $('#fab'); let rsvpVisible = false;
+new IntersectionObserver(([e]) => { rsvpVisible = e.isIntersecting; updFab(); }, { threshold: .05 }).observe($('#rsvp'));
+function updFab() { fab.classList.toggle('show', scrollY > innerHeight * .7 && !rsvpVisible); }
+addEventListener('scroll', updFab, { passive: true });
+</script>
+</body>
+</html>

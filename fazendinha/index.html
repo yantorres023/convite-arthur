@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fazendinha do Arthur · 1 aninho</title>
+<meta name="description" content="O Arthur vai fazer 1 aninho! Domingo, 29 de novembro, às 15h. Festa country na fazendinha, venha caracterizado.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="🐮 Fazendinha do Arthur: 1 aninho!">
+<meta property="og:description" content="Domingo, 29/11, às 15h · Festa country, venha caracterizado! Abra o convite, ache os bichinhos e confirme presença.">
+<meta property="og:image" content="https://yantorres023.github.io/convite-arthur/fazendinha/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#8fd3ff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky1:#7fcaff; --sky2:#dff3ff; --grass:#6cbf5a; --grass-2:#4fa344; --grass-3:#9ad37f;
+  --barn:#d64933; --barn-2:#8e2a1c; --cream:#fff8e8; --paper:#fffdf7; --sun:#ffc83d;
+  --hay:#f2c14e; --hay-2:#c98f1e; --ink:#4a2e1c; --ink-2:#7a5a44; --pink:#ff9eb5; --wa:#1d9a55;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Fredoka,system-ui,sans-serif;color:var(--ink);background:var(--grass);overflow-x:hidden}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+h1,h2,h3{font-family:'Lilita One',Fredoka,sans-serif;font-weight:400;letter-spacing:.01em}
+
+/* ---------- Céu e celeiro ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;overflow:hidden;
+  background:linear-gradient(180deg,var(--sky1) 0%,#b8e3ff 45%,var(--sky2) 75%);padding:max(28px,env(safe-area-inset-top)) 16px 0;text-align:center}
+.sun{position:absolute;top:215px;right:-14px;width:124px;height:124px;z-index:0}
+.sun .rays{transform-origin:60px 60px;animation:spin 24s linear infinite}
+.sun .face{transform-origin:60px 60px;animation:sunBob 4s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sunBob{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.cloud{position:absolute;background:#fff;border-radius:50px;height:34px;opacity:.95;z-index:0;animation:drift linear infinite}
+.cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud::before{width:44px;height:44px;left:16px;top:-22px}
+.cloud::after{width:58px;height:58px;right:14px;top:-30px}
+.c1{width:120px;top:16%;animation-duration:38s;animation-delay:-8s}
+.c2{width:90px;top:31%;animation-duration:52s;animation-delay:-30s;transform:scale(.8)}
+.c3{width:140px;top:8%;animation-duration:64s;animation-delay:-50s;opacity:.8}
+@keyframes drift{from{left:-180px}to{left:calc(100% + 40px)}}
+.hero-text{position:relative;z-index:2;margin-top:8px}
+.pre{font-weight:600;font-size:1rem;color:#2d5f86;background:rgba(255,255,255,.65);display:inline-block;padding:6px 14px;border-radius:30px;
+  animation:fadeDown .8s ease both}
+.hero h1{margin-top:10px;line-height:.95;color:#fff;text-shadow:0 4px 0 var(--barn-2),0 8px 18px rgba(0,0,0,.18)}
+.hero h1 .small{display:block;font-size:clamp(1.6rem,7vw,2.4rem);color:#fff;animation:fadeDown .8s .15s ease both}
+.hero h1 .big{display:block;font-size:clamp(4rem,21vw,7.2rem);color:var(--barn);-webkit-text-stroke:3px #fff;paint-order:stroke fill;
+  text-shadow:0 6px 0 var(--barn-2),0 12px 24px rgba(0,0,0,.2);animation:popIn .9s .3s cubic-bezier(.3,1.6,.5,1) both}
+.hero h1 .big span{display:inline-block;animation:wave 2.6s ease-in-out infinite}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}}
+@keyframes popIn{from{opacity:0;transform:scale(.4)}}
+@keyframes wave{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-10px)}}
+.barn-wrap{position:relative;z-index:3;margin-top:auto;width:min(80vw,330px);margin-bottom:max(9vh,64px)}
+.barn-btn{display:block;width:100%;border:0;background:none;cursor:pointer;position:relative}
+.barn-btn svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 10px 0 rgba(0,0,0,.08))}
+.barn-btn:not(.open) svg{animation:barnIdle 3s ease-in-out infinite}
+@keyframes barnIdle{0%,85%,100%{transform:scale(1)}90%{transform:scale(1.03,.97)}95%{transform:scale(.98,1.02)}}
+.door-l,.door-r{transform-box:fill-box;transition:transform 1s cubic-bezier(.4,1.4,.5,1)}
+.door-l{transform-origin:0 50%}.door-r{transform-origin:100% 50%}
+.open .door-l{transform:scaleX(.12) skewY(10deg)}
+.open .door-r{transform:scaleX(.12) skewY(-10deg)}
+.inside{transform:translateY(90px);transition:transform 1s cubic-bezier(.3,1.5,.5,1) .35s}
+.open .inside{transform:translateY(0)}
+.tap{position:absolute;left:50%;top:-6px;transform:translateX(-50%);white-space:nowrap;background:#fff;color:var(--barn);font-weight:700;
+  padding:8px 16px;border-radius:30px;box-shadow:0 6px 0 rgba(0,0,0,.08),0 8px 20px rgba(0,0,0,.12);animation:bounce 1.1s ease-in-out infinite;pointer-events:none}
+.tap::after{content:"";position:absolute;left:50%;bottom:-8px;margin-left:-8px;border:8px solid transparent;border-bottom:0;border-top-color:#fff}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-8px)}}
+.open .tap{animation:none;opacity:0;transition:opacity .3s}
+.age-ribbon{position:absolute;left:50%;top:-14px;transform:translateX(-50%) scale(0);white-space:nowrap;z-index:4;
+  background:var(--sun);color:var(--ink);font:400 1.5rem 'Lilita One';padding:8px 22px;border-radius:12px;border:3px solid #fff;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);transition:transform .7s cubic-bezier(.3,1.8,.5,1) .9s}
+.open + .age-ribbon,.barn-wrap.opened .age-ribbon{transform:translateX(-50%) scale(1) rotate(-3deg)}
+.hills{position:absolute;left:0;right:0;bottom:0;width:100%;height:30vh;min-height:190px;z-index:1}
+.fence{position:absolute;left:0;right:0;bottom:calc(max(30vh,190px) * .58);height:40px;z-index:1;opacity:.95;
+  background:linear-gradient(#fff,#fff) 0 9px/100% 6px no-repeat,linear-gradient(#fff,#fff) 0 24px/100% 6px no-repeat,
+    repeating-linear-gradient(90deg,#fff 0 9px,transparent 9px 40px)}
+.flower{position:absolute;bottom:8vh;width:46px;z-index:2;transform-origin:50% 100%;animation:sway 3.2s ease-in-out infinite}
+.flower.f1{left:4%}.flower.f2{left:15%;width:34px;bottom:5vh;animation-delay:-1.2s}.flower.f3{right:5%;animation-delay:-.6s}.flower.f4{right:17%;width:32px;bottom:4vh;animation-delay:-2s}
+@keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+.scroll-cue{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:4;color:#fff;font-weight:600;font-size:.9rem;
+  text-shadow:0 2px 4px rgba(0,0,0,.25);opacity:0;transition:opacity .5s}
+.scroll-cue.show{opacity:1;animation:cue 1.4s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
+
+/* ---------- Conteúdo ---------- */
+main{position:relative;z-index:5;margin-top:-26px;border-radius:30px 30px 0 0;padding:44px 16px 140px;
+  background-color:var(--cream);
+  background-image:radial-gradient(rgba(242,193,78,.35) 2.5px,transparent 3px);background-size:26px 26px}
+.wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:34px}
+.card{border-radius:28px;padding:10px;background-color:#fff;
+  background-image:linear-gradient(90deg,rgba(214,73,51,.42) 50%,transparent 50%),linear-gradient(rgba(214,73,51,.42) 50%,transparent 50%);
+  background-size:22px 22px;box-shadow:0 14px 30px rgba(74,46,28,.14)}
+.card-in{background:var(--paper);border-radius:20px;padding:30px 20px 26px;border:2px dashed rgba(214,73,51,.35);text-align:center}
+.card h2{font-size:clamp(1.8rem,8vw,2.4rem);line-height:1.05;color:var(--barn)}
+.card h2 b{font-weight:400;color:var(--grass-2)}
+.card p.lead{font-size:1.08rem;line-height:1.5;margin-top:10px;color:var(--ink-2)}
+.reveal{opacity:0;transform:translateY(40px) scale(.97);transition:opacity .7s ease,transform .8s cubic-bezier(.2,1.2,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.info-item{background:#fff;border-radius:18px;padding:14px 6px 12px;box-shadow:0 4px 0 rgba(74,46,28,.08),0 0 0 2px rgba(74,46,28,.06)}
+.info-item svg{width:46px;height:46px;display:block;margin:0 auto 6px;transition:transform .4s cubic-bezier(.3,1.8,.5,1)}
+.info-item:hover svg{transform:rotate(-10deg) scale(1.1)}
+.info-item b{display:block;font:400 1.25rem 'Lilita One';color:var(--ink)}
+.info-item span{display:block;font-size:.85rem;color:var(--ink-2);line-height:1.3;margin-top:2px}
+.info-item a{color:var(--barn);font-weight:600}
+
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.bale{position:relative;border-radius:16px;padding:12px 0 10px;background:var(--hay);border:3px solid var(--hay-2);overflow:hidden;
+  background-image:repeating-linear-gradient(0deg,transparent 0 10px,rgba(185,120,20,.3) 10px 12px)}
+.bale::before,.bale::after{content:"";position:absolute;top:0;bottom:0;width:4px;background:#a0581d;opacity:.7}
+.bale::before{left:22%}.bale::after{right:22%}
+.bale b{position:relative;z-index:1;display:block;font:400 clamp(1.6rem,8vw,2.3rem) 'Lilita One';color:#fff;text-shadow:0 3px 0 #b8771b}
+.bale span{position:relative;z-index:1;font-weight:600;font-size:.8rem;color:#7a4a12}
+.bale b.tick{animation:tick .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes tick{from{transform:scale(.6)}}
+.today{grid-column:1/-1;font:400 1.8rem 'Lilita One';color:var(--barn)}
+
+/* ---------- Jogo ---------- */
+.game-top{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:14px;font-weight:600}
+.counter{background:var(--grass);color:#fff;border-radius:30px;padding:6px 14px;font:400 1.1rem 'Lilita One';box-shadow:0 3px 0 var(--grass-2)}
+.counter.bump{animation:tick .45s cubic-bezier(.3,1.8,.5,1)}
+.spots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 12px;margin-top:22px;padding:0 4px}
+.spot{position:relative;aspect-ratio:1/1.22;border:0;background:none;cursor:pointer}
+.spot .clip{position:absolute;inset:0;overflow:hidden;border-radius:0 0 14px 14px}
+.spot .animal{position:absolute;left:11%;bottom:0;width:78%;transform:translateY(16%);transition:transform .7s cubic-bezier(.3,1.7,.5,1)}
+.spot .animal svg{width:100%;height:auto;display:block}
+.spot .bale-svg{position:absolute;left:0;bottom:0;width:100%;z-index:2;transform-origin:50% 100%}
+.spot .bale-svg svg{width:100%;display:block}
+.spot:not(.found):not(.empty) .bale-svg{animation:wiggle 3.4s ease-in-out infinite}
+.spot:nth-child(2n) .bale-svg{animation-delay:-1.1s}.spot:nth-child(3n) .bale-svg{animation-delay:-2.2s}
+@keyframes wiggle{0%,80%,100%{transform:rotate(0)}84%{transform:rotate(-4deg)}88%{transform:rotate(4deg)}92%{transform:rotate(-2deg)}}
+.spot.found .animal{transform:translateY(-56%)}
+.spot.found.again .animal{animation:hop .5s cubic-bezier(.3,1.7,.5,1)}
+@keyframes hop{50%{transform:translateY(-68%)}}
+.spot.shake .bale-svg{animation:shake .5s}
+@keyframes shake{20%,60%{transform:rotate(-6deg)}40%,80%{transform:rotate(6deg)}}
+.bubble{position:absolute;top:-12px;right:-6px;z-index:3;background:#fff;color:var(--ink);font-weight:700;font-size:.85rem;white-space:nowrap;
+  padding:5px 10px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,.14);transform:scale(0);transform-origin:20% 100%;pointer-events:none}
+.bubble.show{animation:bub 1.6s cubic-bezier(.3,1.6,.5,1) forwards}
+@keyframes bub{0%{transform:scale(0) rotate(-10deg)}15%,80%{transform:scale(1) rotate(-4deg)}100%{transform:scale(0)}}
+.win{display:none;margin-top:18px;padding:16px;border-radius:18px;background:#eaf8e4;border:2px solid var(--grass)}
+.win.show{display:block;animation:popIn .6s cubic-bezier(.3,1.6,.5,1)}
+.win p{font:400 1.3rem 'Lilita One';color:var(--grass-2)}
+.win a{display:inline-block;margin-top:8px;color:var(--barn);font-weight:700}
+.sound{position:fixed;top:max(12px,env(safe-area-inset-top));right:12px;z-index:40;width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;
+  background:rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(0,0,0,.15);font-size:1.25rem}
+
+/* ---------- Traje ---------- */
+.looks{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px}
+.look{background:#fff;border-radius:16px;padding:10px 2px 8px;box-shadow:0 4px 0 rgba(74,46,28,.08),0 0 0 2px rgba(74,46,28,.06);
+  animation:float 3s ease-in-out infinite}
+.look:nth-child(2){animation-delay:-.7s}.look:nth-child(3){animation-delay:-1.4s}.look:nth-child(4){animation-delay:-2.1s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+.look svg{width:46px;height:46px;display:block;margin:0 auto 4px}
+.look span{font-size:.8rem;font-weight:600}
+.tip{margin-top:16px;font-size:1rem;line-height:1.5;color:var(--ink-2);background:#fff6d8;border-radius:14px;padding:12px 14px}
+
+/* ---------- RSVP ---------- */
+.field{display:block;text-align:left;margin-top:16px;font-weight:600;font-size:.95rem;color:var(--ink)}
+.field input,.field textarea{display:block;width:100%;margin-top:6px;font:500 1.05rem Fredoka,sans-serif;color:var(--ink);
+  background:#fff;border:2px solid #ead9c2;border-radius:14px;padding:13px 14px;outline:none;resize:vertical;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field textarea:focus{border-color:var(--grass);box-shadow:0 0 0 4px rgba(108,191,90,.2)}
+.field.err input{border-color:var(--barn);background:#fff3f0;animation:shakeX .45s}
+@keyframes shakeX{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.err-msg{display:block;margin-top:6px;color:var(--barn);font-size:.85rem;font-weight:500}
+.err-msg[hidden]{display:none}
+.steppers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.stepper{background:#fff;border:2px solid #ead9c2;border-radius:16px;padding:10px 4px}
+.stepper>span{display:block;font-weight:600;font-size:.9rem}
+.stepper>div{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:6px}
+.stepper button{width:34px;height:34px;flex:none;border-radius:50%;border:0;cursor:pointer;background:var(--sun);color:var(--ink);font:700 1.3rem/1 Fredoka;
+  box-shadow:0 3px 0 #d99a12;transition:transform .12s}
+.stepper button:active{transform:translateY(3px);box-shadow:none}
+.stepper output{font:400 1.7rem 'Lilita One';min-width:1.2em}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;cursor:pointer;text-decoration:none;border-radius:18px;font-family:Fredoka}
+.btn-yes{margin-top:22px;padding:17px 16px;background:var(--wa);color:#fff;font-weight:700;font-size:1.15rem;box-shadow:0 6px 0 #137240;transition:transform .12s,box-shadow .12s}
+.btn-yes:active{transform:translateY(5px);box-shadow:0 1px 0 #137240}
+.btn-yes svg{width:24px;height:24px;flex:none}
+.btn-no{margin-top:12px;padding:10px;background:none;color:var(--ink-2);font-weight:500;text-decoration:underline;text-underline-offset:4px}
+.btn-cal{margin-top:4px;padding:12px;background:#fff;color:var(--ink);font-weight:600;border:2px dashed #ead9c2}
+.thanks{display:none;margin-top:16px;padding:14px;border-radius:16px;background:#eaf8e4;color:var(--grass-2);font-weight:600}
+.thanks.show{display:block;animation:popIn .6s cubic-bezier(.3,1.6,.5,1)}
+
+footer{text-align:center;margin-top:10px}
+footer p{font:400 clamp(1.6rem,7vw,2.1rem) 'Lilita One';color:var(--barn)}
+footer small{display:block;margin-top:6px;color:var(--ink-2);font-weight:500}
+footer .cow{width:96px;margin:0 auto 6px;display:block;animation:float 3s ease-in-out infinite}
+.ground{position:absolute;left:0;right:0;bottom:0;height:70px;background:var(--grass);
+  -webkit-mask:radial-gradient(18px 14px at 18px 0,transparent 98%,#000) 0 0/36px 100% repeat-x;mask:radial-gradient(18px 14px at 18px 0,transparent 98%,#000) 0 0/36px 100% repeat-x}
+
+.fab{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));z-index:30;display:flex;align-items:center;gap:8px;
+  padding:14px 22px;border-radius:40px;background:var(--wa);color:#fff;font-weight:700;text-decoration:none;white-space:nowrap;
+  box-shadow:0 5px 0 #137240,0 10px 24px rgba(0,0,0,.25);transform:translate(-50%,170%);transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.fab.show{transform:translate(-50%,0)}
+
+@media (min-width:700px){ .spots{gap:14px 22px} .barn-wrap{width:340px} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .cloud{display:none}
+}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="hat" viewBox="0 0 64 40"><path d="M17 27c-1-10 1-20 7-23 3-1 5 2 8 2s5-3 8-2c6 3 8 13 7 23-9 3-21 3-30 0z" fill="#b5773e" stroke="#5a3a1c" stroke-width="2"/><path d="M17.5 21.5c9 2.5 20 2.5 29 0l.3 4.5c-9 2.6-20.6 2.6-29.6 0z" fill="#d64933"/><path d="M3 25c4 4 15 7 29 7s25-3 29-7c2 2 0 8-6 10-6 3-14 4-23 4S15 38 9 35C3 33 1 27 3 25z" fill="#cf8f4f" stroke="#5a3a1c" stroke-width="2"/></symbol>
+    <pattern id="plaid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <rect width="12" height="12" fill="#e45a46"/><rect width="12" height="4" y="4" fill="#a8321f" opacity=".6"/><rect width="4" height="12" x="4" fill="#a8321f" opacity=".6"/>
+      <rect width="12" height="1" y="10" fill="#fff" opacity=".5"/><rect width="1" height="12" x="10" fill="#fff" opacity=".5"/>
+    </pattern>
+    <pattern id="planks" width="16" height="10" patternUnits="userSpaceOnUse"><rect width="16" height="10" fill="#d64933"/><rect width="2" height="10" fill="#b83a27"/></pattern>
+    <pattern id="planksD" width="12" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" fill="#c23c28"/><rect width="2" height="10" fill="#a3301f"/></pattern>
+  </defs>
+</svg>
+
+<button class="sound" id="sound" aria-label="Desligar sons" aria-pressed="true">🔊</button>
+
+<header class="hero" id="hero">
+  <svg class="sun" viewBox="0 0 120 120" aria-hidden="true">
+    <g class="rays" fill="#ffd95a">
+      <path d="M60 0l6 18H54z"/><path d="M60 0l6 18H54z" transform="rotate(30 60 60)"/><path d="M60 0l6 18H54z" transform="rotate(60 60 60)"/>
+      <path d="M60 0l6 18H54z" transform="rotate(90 60 60)"/><path d="M60 0l6 18H54z" transform="rotate(120 60 60)"/><path d="M60 0l6 18H54z" transform="rotate(150 60 60)"/>
+      <path d="M60 0l6 18H54z" transform="rotate(180 60 60)"/><path d="M60 0l6 18H54z" transform="rotate(210 60 60)"/><path d="M60 0l6 18H54z" transform="rotate(240 60 60)"/>
+      <path d="M60 0l6 18H54z" transform="rotate(270 60 60)"/><path d="M60 0l6 18H54z" transform="rotate(300 60 60)"/><path d="M60 0l6 18H54z" transform="rotate(330 60 60)"/>
+    </g>
+    <g class="face">
+      <circle cx="60" cy="60" r="36" fill="#ffc83d" stroke="#f0a92a" stroke-width="3"/>
+      <circle cx="49" cy="56" r="3.5" fill="#6b3f12"/><circle cx="71" cy="56" r="3.5" fill="#6b3f12"/>
+      <path d="M50 68c5 6 15 6 20 0" fill="none" stroke="#6b3f12" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="42" cy="66" rx="5" ry="3" fill="#ff9e7a" opacity=".7"/><ellipse cx="78" cy="66" rx="5" ry="3" fill="#ff9e7a" opacity=".7"/>
+    </g>
+  </svg>
+  <span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span>
+
+  <div class="hero-text">
+    <p class="pre">Você está convidado para a</p>
+    <h1><span class="small">Fazendinha do</span><span class="big" aria-label="Arthur"><span>A</span><span style="animation-delay:.1s">r</span><span style="animation-delay:.2s">t</span><span style="animation-delay:.3s">h</span><span style="animation-delay:.4s">u</span><span style="animation-delay:.5s">r</span></span></h1>
+  </div>
+
+  <span class="fence" aria-hidden="true"></span>
+  <svg class="hills" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 52C70 20 150 26 220 46c70 20 120-10 180-6v80H0z" fill="#9ad37f"/>
+    <path d="M0 78c90-26 180-18 260 2 60 14 100 2 140-2v42H0z" fill="#6cbf5a"/>
+  </svg>
+  <svg class="flower f1" viewBox="0 0 60 120" aria-hidden="true"><use href="#sunflower"/></svg>
+  <svg class="flower f2" viewBox="0 0 60 120" aria-hidden="true"><use href="#sunflower"/></svg>
+  <svg class="flower f3" viewBox="0 0 60 120" aria-hidden="true"><use href="#sunflower"/></svg>
+  <svg class="flower f4" viewBox="0 0 60 120" aria-hidden="true"><use href="#sunflower"/></svg>
+  <svg width="0" height="0" style="position:absolute"><defs><symbol id="sunflower" viewBox="0 0 60 120">
+    <path d="M30 40v80" stroke="#3f8f37" stroke-width="5"/><path d="M30 86c-12-2-20-10-22-18 10 0 18 6 22 14z" fill="#4fa344"/><path d="M30 72c12-2 20-10 22-18-10 0-18 6-22 14z" fill="#4fa344"/>
+    <g fill="#ffcf2e" stroke="#e8a412" stroke-width="1.5">
+      <ellipse cx="30" cy="14" rx="6" ry="12"/><ellipse cx="30" cy="14" rx="6" ry="12" transform="rotate(45 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="12" transform="rotate(90 30 30)"/>
+      <ellipse cx="30" cy="14" rx="6" ry="12" transform="rotate(135 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="12" transform="rotate(180 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="12" transform="rotate(225 30 30)"/>
+      <ellipse cx="30" cy="14" rx="6" ry="12" transform="rotate(270 30 30)"/><ellipse cx="30" cy="14" rx="6" ry="12" transform="rotate(315 30 30)"/>
+    </g>
+    <circle cx="30" cy="30" r="10" fill="#7a4a2a"/><circle cx="27" cy="27" r="1.5" fill="#a26a40"/><circle cx="33" cy="31" r="1.5" fill="#a26a40"/><circle cx="28" cy="33" r="1.5" fill="#a26a40"/>
+  </symbol></defs></svg>
+
+  <div class="barn-wrap" id="barnWrap">
+    <button class="barn-btn" id="barn" aria-label="Abrir as portas do celeiro">
+      <svg viewBox="0 0 300 300" aria-hidden="true">
+        <defs><clipPath id="doorClip"><rect x="88" y="178" width="124" height="116"/></clipPath></defs>
+        <ellipse cx="150" cy="296" rx="146" ry="9" fill="rgba(40,80,30,.25)"/>
+        <path d="M34 294V132l26-62 90-44 90 44 26 62v162z" fill="url(#planks)"/>
+        <path d="M22 138l34-72 94-46 94 46 34 72" fill="none" stroke="#8e2a1c" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M22 138l34-72 94-46 94 46 34 72" fill="none" stroke="#fff8e8" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M34 146h232" stroke="#fff8e8" stroke-width="5"/>
+        <rect x="126" y="70" width="48" height="46" fill="#8e2a1c" stroke="#fff8e8" stroke-width="4"/>
+        <path d="M126 70l48 46M174 70l-48 46" stroke="#fff8e8" stroke-width="3"/>
+        <path d="M132 116l-4 8M142 117l-1 9M152 116l2 9M162 117l4 8M170 116l5 7" stroke="#f2c14e" stroke-width="3" stroke-linecap="round"/>
+        <g><rect x="50" y="166" width="26" height="26" rx="2" fill="#ffe9a8" stroke="#fff8e8" stroke-width="4"/><path d="M63 166v26M50 179h26" stroke="#fff8e8" stroke-width="3"/></g>
+        <g><rect x="224" y="166" width="26" height="26" rx="2" fill="#ffe9a8" stroke="#fff8e8" stroke-width="4"/><path d="M237 166v26M224 179h26" stroke="#fff8e8" stroke-width="3"/></g>
+        <rect x="88" y="178" width="124" height="116" fill="#3b1a10"/>
+        <g clip-path="url(#doorClip)">
+          <g class="inside">
+            <circle cx="150" cy="236" r="44" fill="#ffd95a" opacity=".35"/>
+            <text x="150" y="286" text-anchor="middle" font-family="Lilita One" font-size="92" fill="#ffc83d" stroke="#7a4a2a" stroke-width="5" paint-order="stroke">1</text>
+            <use href="#hat" x="118" y="182" width="62" height="40" transform="rotate(-10 150 200)"/>
+          </g>
+          <path d="M88 294c10-22 30-26 46-14 14-16 36-12 48 0 12-8 24-6 30 6v8z" fill="#f2c14e"/>
+        </g>
+        <rect x="88" y="178" width="124" height="116" fill="none" stroke="#fff8e8" stroke-width="6"/>
+        <g class="door-l"><rect x="91" y="181" width="59" height="113" fill="url(#planksD)" stroke="#fff8e8" stroke-width="4"/><path d="M93 183l55 109M148 183L93 292" stroke="#fff8e8" stroke-width="4"/></g>
+        <g class="door-r"><rect x="150" y="181" width="59" height="113" fill="url(#planksD)" stroke="#fff8e8" stroke-width="4"/><path d="M152 183l55 109M207 183l-55 109" stroke="#fff8e8" stroke-width="4"/></g>
+      </svg>
+      <span class="tap">👆 Toque no celeiro!</span>
+    </button>
+    <span class="age-ribbon">🎉 1 aninho! 🎉</span>
+  </div>
+  <span class="scroll-cue" id="cue">role pra baixo ↓</span>
+</header>
+
+<main>
+  <div class="wrap">
+    <!-- Convite -->
+    <section class="card reveal" aria-labelledby="t-convite">
+      <div class="card-in">
+        <h2 id="t-convite">O Arthur vai fazer <b>1 aninho!</b></h2>
+        <p class="lead">E pra comemorar, a porteira da fazendinha vai abrir pra família e os amigos. Vem com a gente?</p>
+        <div class="info">
+          <div class="info-item">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="33" rx="6" fill="#fff" stroke="#4a2e1c" stroke-width="2.5"/><path d="M6 15a6 6 0 016-6h24a6 6 0 016 6v5H6z" fill="#d64933" stroke="#4a2e1c" stroke-width="2.5"/><path d="M15 5v8M33 5v8" stroke="#4a2e1c" stroke-width="3" stroke-linecap="round"/><text x="24" y="37" text-anchor="middle" font-family="Lilita One" font-size="15" fill="#4a2e1c">29</text></svg>
+            <b>Domingo</b><span>29 de novembro</span>
+          </div>
+          <div class="info-item">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" fill="#ffc83d" stroke="#4a2e1c" stroke-width="2.5"/><path d="M24 13v11h9" fill="none" stroke="#4a2e1c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="2" fill="#4a2e1c"/></svg>
+            <b>15h</b><span>da tarde</span>
+          </div>
+          <div class="info-item">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s14-13 14-24a14 14 0 10-28 0c0 11 14 24 14 24z" fill="#6cbf5a" stroke="#4a2e1c" stroke-width="2.5"/><circle cx="24" cy="20" r="5" fill="#fff" stroke="#4a2e1c" stroke-width="2"/></svg>
+            <b>Local</b><span id="where">vai junto com a confirmação</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contagem -->
+    <section class="card reveal" aria-labelledby="t-cd">
+      <div class="card-in">
+        <h2 id="t-cd">Faltam só…</h2>
+        <div class="cd" id="cd">
+          <div class="bale"><b id="cd-d">00</b><span>dias</span></div>
+          <div class="bale"><b id="cd-h">00</b><span>horas</span></div>
+          <div class="bale"><b id="cd-m">00</b><span>min</span></div>
+          <div class="bale"><b id="cd-s">00</b><span>seg</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jogo -->
+    <section class="card reveal" aria-labelledby="t-jogo">
+      <div class="card-in">
+        <h2 id="t-jogo">Cadê os bichinhos?</h2>
+        <p class="lead">Os amigos do Arthur se esconderam atrás dos fardos de feno. Toque nos fardos para encontrar todos!</p>
+        <div class="game-top"><span class="counter" id="counter" aria-live="polite">0 de 4</span></div>
+        <div class="spots" id="spots"></div>
+        <div class="win" id="win" role="status"><p>🎉 Você achou todos os bichinhos!</p><a href="#rsvp">Agora confirme sua presença ↓</a></div>
+      </div>
+    </section>
+
+    <!-- Traje -->
+    <section class="card reveal" aria-labelledby="t-traje">
+      <div class="card-in">
+        <h2 id="t-traje">Vem a caráter! <b>🤠</b></h2>
+        <p class="lead">A festa é <strong>country</strong> e a gente quer todo mundo no clima da fazendinha. Capricha no look!</p>
+        <div class="looks">
+          <div class="look"><svg viewBox="0 0 64 40" aria-hidden="true"><use href="#hat"/></svg><span>Chapéu</span></div>
+          <div class="look"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 8l10 7 10-7 15 8-6 13-6-3v30H19V26l-6 3-6-13z" fill="url(#plaid)" stroke="#4a2e1c" stroke-width="2" stroke-linejoin="round"/><path d="M22 8l10 12 10-12" fill="#fff8e8" stroke="#4a2e1c" stroke-width="2" stroke-linejoin="round"/><path d="M32 20v36" stroke="#4a2e1c" stroke-width="1.5"/></svg><span>Xadrez</span></div>
+          <div class="look"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 6h22v27c2 5 8 7 14 9 5 2 8 5 8 10v3H33l-3-3h-6v3H16z" fill="#b5773e" stroke="#4a2e1c" stroke-width="2" stroke-linejoin="round"/><path d="M16 12h22" stroke="#4a2e1c" stroke-width="2"/><path d="M21 18c4 4 8 4 12 0M21 26c4 4 8 4 12 0" fill="none" stroke="#ff9eb5" stroke-width="2.4" stroke-linecap="round"/><path d="M14 55h48v4H14z" fill="#4a2e1c"/></svg><span>Botinha</span></div>
+          <div class="look"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 14h52L32 54z" fill="#d64933" stroke="#4a2e1c" stroke-width="2" stroke-linejoin="round"/><g fill="#fff"><circle cx="20" cy="20" r="2"/><circle cx="32" cy="22" r="2.4"/><circle cx="44" cy="20" r="2"/><circle cx="26" cy="31" r="2"/><circle cx="38" cy="31" r="2"/><circle cx="32" cy="41" r="2"/></g><path d="M7 14c-4-4-3-8 1-9M57 14c4-4 3-8-1-9" fill="none" stroke="#d64933" stroke-width="4" stroke-linecap="round"/></svg><span>Bandana</span></div>
+        </div>
+        <p class="tip">💡 Chapéu, camisa xadrez, botinha, bandana, jardineira… vale tudo! E os pequenos podem vir até de bichinho da fazenda 🐮🐷🐴</p>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="card reveal" id="rsvp" aria-labelledby="t-rsvp">
+      <div class="card-in">
+        <h2 id="t-rsvp">Confirma presença?</h2>
+        <p class="lead">Preencha rapidinho e envie pelo WhatsApp. O Arthur agradece! 💛</p>
+        <form id="form" novalidate>
+          <label class="field" id="nomeField">Seu nome (ou da família)
+            <input id="nome" autocomplete="name" placeholder="Ex.: Família Silva" maxlength="80">
+            <span class="err-msg" id="nomeErr" hidden>Conta pra gente quem é você 😉</span>
+          </label>
+          <div class="steppers">
+            <div class="stepper"><span>Adultos</span>
+              <div><button type="button" data-step="-1" data-target="adultos" aria-label="Menos um adulto">−</button><output id="adultos" aria-live="polite">1</output><button type="button" data-step="1" data-target="adultos" aria-label="Mais um adulto">+</button></div>
+            </div>
+            <div class="stepper"><span>Crianças</span>
+              <div><button type="button" data-step="-1" data-target="criancas" aria-label="Menos uma criança">−</button><output id="criancas" aria-live="polite">0</output><button type="button" data-step="1" data-target="criancas" aria-label="Mais uma criança">+</button></div>
+            </div>
+          </div>
+          <label class="field">Recadinho pro Arthur (opcional)
+            <textarea id="recado" rows="2" maxlength="300" placeholder="Parabéns, Arthurzinho! 🎂"></textarea>
+          </label>
+          <button class="btn btn-yes" type="submit">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>Confirmar no WhatsApp</span>
+          </button>
+          <button class="btn btn-no" type="button" id="btnNo">Não vou conseguir ir 😢</button>
+        </form>
+        <a class="btn btn-cal" id="cal" href="#" target="_blank" rel="noopener">📅 Salvar na agenda</a>
+        <p class="thanks" id="thanks" role="status">Oba! Abrimos o WhatsApp pra você enviar. Até a festa! 🐮</p>
+      </div>
+    </section>
+
+    <footer>
+      <svg class="cow" viewBox="0 0 120 110" aria-hidden="true"><use href="#cowArt"/></svg>
+      <p>Te esperamos na fazendinha!</p>
+      <small>Arthur · 1 aninho · 29.11.2026</small>
+    </footer>
+  </div>
+  <div class="ground" aria-hidden="true"></div>
+</main>
+
+<a class="fab" id="fab" href="#rsvp">🐮 Confirmar presença</a>
+
+<!-- Bichinhos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="cowArt" viewBox="0 0 120 110">
+    <path d="M30 26c-7-6-9-14-4-18 1 7 6 10 12 12z" fill="#f3e3c3" stroke="#5a3a1c" stroke-width="2"/>
+    <path d="M90 26c7-6 9-14 4-18-1 7-6 10-12 12z" fill="#f3e3c3" stroke="#5a3a1c" stroke-width="2"/>
+    <ellipse cx="18" cy="42" rx="15" ry="8" transform="rotate(-18 18 42)" fill="#fff" stroke="#3a2a20" stroke-width="2.5"/>
+    <ellipse cx="18" cy="42" rx="8" ry="4" transform="rotate(-18 18 42)" fill="#ffc2cf"/>
+    <ellipse cx="102" cy="42" rx="15" ry="8" transform="rotate(18 102 42)" fill="#fff" stroke="#3a2a20" stroke-width="2.5"/>
+    <ellipse cx="102" cy="42" rx="8" ry="4" transform="rotate(18 102 42)" fill="#ffc2cf"/>
+    <path d="M28 34c0-14 14-24 32-24s32 10 32 24v28c0 8-6 14-14 14H42c-8 0-14-6-14-14z" fill="#fff" stroke="#3a2a20" stroke-width="2.5"/>
+    <path d="M38 16c8-3 15 3 13 10s-11 9-17 4c-4-4-2-12 4-14z" fill="#3a2a20"/>
+    <path d="M80 36c6-1 11 5 8 10s-12 4-13-1 1-8 5-9z" fill="#3a2a20"/>
+    <ellipse cx="60" cy="80" rx="30" ry="20" fill="#ffb3c1" stroke="#3a2a20" stroke-width="2.5"/>
+    <ellipse cx="49" cy="80" rx="4" ry="6" fill="#c46a7d"/><ellipse cx="71" cy="80" rx="4" ry="6" fill="#c46a7d"/>
+    <circle cx="46" cy="48" r="5.5" fill="#2a1d14"/><circle cx="74" cy="48" r="5.5" fill="#2a1d14"/>
+    <circle cx="47.8" cy="46" r="1.8" fill="#fff"/><circle cx="75.8" cy="46" r="1.8" fill="#fff"/>
+    <ellipse cx="36" cy="60" rx="5" ry="3" fill="#ffb3c1"/><ellipse cx="84" cy="60" rx="5" ry="3" fill="#ffb3c1"/>
+  </symbol>
+  <symbol id="horseArt" viewBox="0 0 120 110">
+    <path d="M38 30l-6-22 16 12z" fill="#a86b3c" stroke="#5a3418" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M82 30l6-22-16 12z" fill="#a86b3c" stroke="#5a3418" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M34 40c0-18 12-28 26-28s26 10 26 28v26c0 20-10 34-26 34S34 86 34 66z" fill="#b97a45" stroke="#5a3418" stroke-width="2.5"/>
+    <path d="M44 18c4 10 10 14 16 14s12-4 16-14c-2 10-8 18-16 18s-14-8-16-18z" fill="#4a2a14"/>
+    <path d="M56 36c0 10 1 22 4 30 3-8 4-20 4-30z" fill="#fff6ea"/>
+    <ellipse cx="60" cy="86" rx="20" ry="14" fill="#e3b88e" stroke="#5a3418" stroke-width="2.5"/>
+    <ellipse cx="52" cy="88" rx="3" ry="4.5" fill="#5a3418"/><ellipse cx="68" cy="88" rx="3" ry="4.5" fill="#5a3418"/>
+    <circle cx="45" cy="52" r="5.5" fill="#2a1d14"/><circle cx="75" cy="52" r="5.5" fill="#2a1d14"/>
+    <circle cx="46.8" cy="50" r="1.8" fill="#fff"/><circle cx="76.8" cy="50" r="1.8" fill="#fff"/>
+    <ellipse cx="40" cy="66" rx="4.5" ry="3" fill="#ff9eb5" opacity=".7"/><ellipse cx="80" cy="66" rx="4.5" ry="3" fill="#ff9eb5" opacity=".7"/>
+    <use href="#hat" x="36" y="-4" width="48" height="30"/>
+  </symbol>
+  <symbol id="pigArt" viewBox="0 0 120 110">
+    <path d="M28 34L22 8l26 14z" fill="#ff9eb5" stroke="#c4607a" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M92 34l6-26-26 14z" fill="#ff9eb5" stroke="#c4607a" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="60" cy="58" r="40" fill="#ffc1d1" stroke="#c4607a" stroke-width="2.5"/>
+    <ellipse cx="60" cy="70" rx="18" ry="13" fill="#ff9eb5" stroke="#c4607a" stroke-width="2.5"/>
+    <ellipse cx="53" cy="70" rx="3.5" ry="5" fill="#b04a66"/><ellipse cx="67" cy="70" rx="3.5" ry="5" fill="#b04a66"/>
+    <circle cx="44" cy="48" r="5" fill="#2a1d14"/><circle cx="76" cy="48" r="5" fill="#2a1d14"/>
+    <circle cx="45.6" cy="46.2" r="1.7" fill="#fff"/><circle cx="77.6" cy="46.2" r="1.7" fill="#fff"/>
+    <ellipse cx="34" cy="66" rx="5" ry="3.2" fill="#ff8fab" opacity=".8"/><ellipse cx="86" cy="66" rx="5" ry="3.2" fill="#ff8fab" opacity=".8"/>
+  </symbol>
+  <symbol id="chickArt" viewBox="0 0 120 110">
+    <ellipse cx="22" cy="68" rx="12" ry="18" transform="rotate(25 22 68)" fill="#ffd23f" stroke="#e0a800" stroke-width="2.5"/>
+    <ellipse cx="98" cy="68" rx="12" ry="18" transform="rotate(-25 98 68)" fill="#ffd23f" stroke="#e0a800" stroke-width="2.5"/>
+    <circle cx="60" cy="62" r="40" fill="#ffe14d" stroke="#e0a800" stroke-width="2.5"/>
+    <path d="M51 62l9 11 9-11z" fill="#ff9a1f" stroke="#d9730a" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="45" cy="52" r="5" fill="#2a1d14"/><circle cx="75" cy="52" r="5" fill="#2a1d14"/>
+    <circle cx="46.6" cy="50.2" r="1.7" fill="#fff"/><circle cx="76.6" cy="50.2" r="1.7" fill="#fff"/>
+    <ellipse cx="36" cy="66" rx="5" ry="3.2" fill="#ffa6b8" opacity=".8"/><ellipse cx="84" cy="66" rx="5" ry="3.2" fill="#ffa6b8" opacity=".8"/>
+    <use href="#hat" x="32" y="0" width="56" height="35"/>
+  </symbol>
+  <symbol id="baleArt" viewBox="0 0 140 90">
+    <rect x="3" y="12" width="134" height="75" rx="14" fill="#f2c14e" stroke="#c98f1e" stroke-width="3"/>
+    <path d="M14 32h112M14 50h112M14 68h112" stroke="#d9a332" stroke-width="2.5" stroke-dasharray="7 6" stroke-linecap="round"/>
+    <path d="M42 12v75M98 12v75" stroke="#a0581d" stroke-width="5"/>
+    <path d="M18 14l-5-9M34 12l1-10M56 13l-3-9M80 12l3-9M104 13l2-9M124 15l6-8" stroke="#e6b13a" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+</defs></svg>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+<script>
+/* ===== Ajuste aqui ===== */
+const CONFIG = {
+  whatsapp: '5531991692132',
+  inicio: '2026-11-29T15:00:00-03:00',
+  local: '',  // ex.: 'Rua das Flores, 123 – Bairro, Belo Horizonte'
+  mapa: ''    // link do Google Maps (opcional)
+};
+/* ======================= */
+const $ = s => document.querySelector(s);
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Confete com bichinhos */
+let emojiShapes = null;
+function party(n = 120, origin) {
+  if (reduce || !window.confetti) return;
+  if (!emojiShapes && confetti.shapeFromText) { try { emojiShapes = ['🌻', '🐮', '⭐', '🤠'].map(t => confetti.shapeFromText({ text: t, scalar: 2 })); } catch (e) { emojiShapes = []; } }
+  const colors = ['#d64933', '#ffc83d', '#6cbf5a', '#7fcaff', '#ff9eb5', '#ffffff'];
+  confetti({ particleCount: n, spread: 90, startVelocity: 40, ticks: 240, colors, origin: origin || { x: .5, y: .6 }, zIndex: 60 });
+  if (emojiShapes && emojiShapes.length) confetti({ particleCount: Math.round(n / 4), spread: 100, startVelocity: 38, ticks: 260, shapes: emojiShapes, scalar: 2, flat: true, origin: origin || { x: .5, y: .6 }, zIndex: 60 });
+}
+
+/* Sons (sintetizados, sem arquivos) */
+let ac = null, soundOn = true;
+function actx() { if (!ac) ac = new (window.AudioContext || window.webkitAudioContext)(); if (ac.state === 'suspended') ac.resume(); return ac; }
+function tone({ type = 'sine', f0, f1 = f0, dur = .2, gain = .2, at = 0, lp = 0 }) {
+  if (!soundOn) return;
+  try {
+    const a = actx(), t = a.currentTime + at, o = a.createOscillator(), g = a.createGain();
+    o.type = type; o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f1, t + dur);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(gain, t + .03); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+    let node = o; if (lp) { const f = a.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = lp; o.connect(f); node = f; }
+    node.connect(g); g.connect(a.destination); o.start(t); o.stop(t + dur + .05);
+  } catch (e) {}
+}
+const sounds = {
+  vaca() { tone({ type: 'sawtooth', f0: 160, f1: 120, dur: 1.1, gain: .22, lp: 650 }); tone({ type: 'sawtooth', f0: 320, f1: 230, dur: 1.1, gain: .05, lp: 900 }); },
+  cavalo() { for (let i = 0; i < 7; i++) tone({ type: 'square', f0: 1100 - i * 70, f1: 850 - i * 70, dur: .08, at: i * .07, gain: .06, lp: 2400 }); },
+  porco() { tone({ type: 'sawtooth', f0: 230, f1: 150, dur: .16, gain: .2, lp: 520 }); tone({ type: 'sawtooth', f0: 210, f1: 140, dur: .16, at: .22, gain: .2, lp: 520 }); },
+  pintinho() { tone({ f0: 2300, f1: 3100, dur: .11, gain: .14 }); tone({ f0: 2300, f1: 3200, dur: .11, at: .17, gain: .14 }); },
+  feno() { tone({ type: 'triangle', f0: 420, f1: 260, dur: .22, gain: .15 }); },
+  porta() { tone({ type: 'triangle', f0: 300, f1: 520, dur: .35, gain: .12 }); tone({ f0: 660, dur: .15, at: .35, gain: .12 }); tone({ f0: 880, dur: .25, at: .5, gain: .12 }); },
+  vitoria() { [523, 659, 784, 1047].forEach((f, i) => tone({ type: 'triangle', f0: f, dur: .22, at: i * .12, gain: .14 })); }
+};
+const soundBtn = $('#sound');
+soundBtn.addEventListener('click', () => {
+  soundOn = !soundOn; soundBtn.textContent = soundOn ? '🔊' : '🔇';
+  soundBtn.setAttribute('aria-pressed', soundOn); soundBtn.setAttribute('aria-label', soundOn ? 'Desligar sons' : 'Ligar sons');
+});
+
+/* Endereço */
+if (CONFIG.local) {
+  const w = $('#where'); w.textContent = CONFIG.local;
+  if (CONFIG.mapa) { const a = document.createElement('a'); a.href = CONFIG.mapa; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Ver no mapa'; w.append(document.createElement('br'), a); }
+}
+
+/* Celeiro */
+const barn = $('#barn');
+let barnOpen = false;
+barn.addEventListener('click', () => {
+  if (barnOpen) { sounds.vaca(); party(50, { x: .5, y: .7 }); return; }
+  barnOpen = true; barn.classList.add('open'); $('#barnWrap').classList.add('opened');
+  barn.setAttribute('aria-label', 'Celeiro aberto');
+  sounds.porta();
+  setTimeout(() => party(140, { x: .5, y: .7 }), reduce ? 0 : 700);
+  setTimeout(() => $('#cue').classList.add('show'), 1500);
+});
+
+/* Contagem regressiva */
+const target = new Date(CONFIG.inicio).getTime();
+const cdEls = { d: $('#cd-d'), h: $('#cd-h'), m: $('#cd-m'), s: $('#cd-s') };
+const pad = n => String(n).padStart(2, '0');
+function tick() {
+  const diff = target - Date.now();
+  if (diff <= 0) { $('#cd').innerHTML = `<p class="today">${diff > -864e5 ? 'É hoje! 🎉' : 'Foi lindo! Obrigado 💛'}</p>`; clearInterval(timer); return; }
+  const v = { d: Math.floor(diff / 864e5), h: Math.floor(diff / 36e5) % 24, m: Math.floor(diff / 6e4) % 60, s: Math.floor(diff / 1e3) % 60 };
+  for (const k in v) { const t = pad(v[k]), el = cdEls[k]; if (el.textContent !== t) { el.textContent = t; if (!reduce) { el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); } } }
+}
+const timer = setInterval(tick, 1000); tick();
+
+/* Jogo: cadê os bichinhos? */
+const animals = {
+  vaca: { art: 'cowArt', say: 'Muuu! 🐮', name: 'a vaquinha' },
+  cavalo: { art: 'horseArt', say: 'Iirrí! 🐴', name: 'o cavalinho' },
+  porco: { art: 'pigArt', say: 'Oinc oinc! 🐷', name: 'o porquinho' },
+  pintinho: { art: 'chickArt', say: 'Piu piu! 🐥', name: 'o pintinho' }
+};
+const order = ['vaca', 'cavalo', 'porco', 'pintinho', null, null].sort(() => Math.random() - .5);
+const spots = $('#spots'); let found = 0;
+order.forEach((key, i) => {
+  const b = document.createElement('button');
+  b.className = 'spot'; b.type = 'button'; b.setAttribute('aria-label', `Fardo de feno ${i + 1}`);
+  b.innerHTML = `<span class="clip">${key ? `<span class="animal"><svg viewBox="0 0 120 110" aria-hidden="true"><use href="#${animals[key].art}"/></svg></span>` : ''}</span>`
+    + `<span class="bale-svg"><svg viewBox="0 0 140 90" aria-hidden="true"><use href="#baleArt"/></svg></span><span class="bubble"></span>`;
+  b.addEventListener('click', () => {
+    const bub = b.querySelector('.bubble');
+    bub.classList.remove('show'); void bub.offsetWidth;
+    if (!key) {
+      bub.textContent = 'Só feno! 🌾'; bub.classList.add('show');
+      b.classList.remove('shake'); void b.offsetWidth; b.classList.add('shake'); sounds.feno(); return;
+    }
+    bub.textContent = animals[key].say; bub.classList.add('show'); sounds[key]();
+    if (b.classList.contains('found')) { b.classList.remove('again'); void b.offsetWidth; b.classList.add('again'); return; }
+    b.classList.add('found'); b.setAttribute('aria-label', `Você achou ${animals[key].name}!`);
+    found++;
+    const c = $('#counter'); c.textContent = `${found} de 4`; c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump');
+    if (found === 4) setTimeout(() => { $('#win').classList.add('show'); sounds.vitoria(); party(160); }, 600);
+  });
+  spots.append(b);
+});
+
+/* RSVP */
+const count = { adultos: 1, criancas: 0 };
+document.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.target; count[k] = Math.min(20, Math.max(0, count[k] + Number(b.dataset.step)));
+  $('#' + k).textContent = count[k]; tone({ type: 'triangle', f0: b.dataset.step > 0 ? 700 : 500, dur: .08, gain: .08 });
+}));
+const nome = $('#nome');
+function getName() {
+  const v = nome.value.trim(), f = $('#nomeField');
+  if (!v) { f.classList.remove('err'); void f.offsetWidth; f.classList.add('err'); $('#nomeErr').hidden = false; nome.focus(); return null; }
+  f.classList.remove('err'); $('#nomeErr').hidden = true; return v;
+}
+nome.addEventListener('input', () => { if (nome.value.trim()) { $('#nomeField').classList.remove('err'); $('#nomeErr').hidden = true; } });
+function openWA(text) {
+  const url = 'https://api.whatsapp.com/send?phone=' + CONFIG.whatsapp + '&text=' + encodeURIComponent(text);
+  const w = window.open(url, '_blank'); if (w) w.opener = null; else location.href = url;
+}
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const n = getName(); if (!n) return;
+  if (count.adultos + count.criancas === 0) { count.adultos = 1; $('#adultos').textContent = 1; }
+  let t = `Oi! 🐮 Aqui é ${n}.\nConfirmo presença na Fazendinha do Arthur (1 aninho), domingo (29/11) às 15h!\n\n👤 Adultos: ${count.adultos}\n🧒 Crianças: ${count.criancas}`;
+  const r = $('#recado').value.trim(); if (r) t += `\n\n💬 Recadinho pro Arthur: ${r}`;
+  openWA(t);
+  $('#thanks').classList.add('show'); sounds.vitoria(); party(150);
+});
+$('#btnNo').addEventListener('click', () => {
+  const n = getName(); if (!n) return;
+  let t = `Oi! Aqui é ${n}. Infelizmente não vou conseguir ir à Fazendinha do Arthur 😢\nMando um beijo enorme e muitas felicidades pelo 1 aninho! 💛`;
+  const r = $('#recado').value.trim(); if (r) t += `\n\n💬 Recadinho pro Arthur: ${r}`;
+  openWA(t);
+});
+
+/* Agenda */
+const cal = $('#cal');
+if (/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) { cal.href = '../arthur.ics'; cal.removeAttribute('target'); }
+else cal.href = 'https://calendar.google.com/calendar/render?' + new URLSearchParams({ action: 'TEMPLATE', text: 'Aniversário de 1 aninho do Arthur 🐮', dates: '20261129T180000Z/20261129T220000Z', details: 'Festa country, venha caracterizado! Convite: ' + location.href.split('#')[0], location: CONFIG.local }).toString();
+
+/* Revelar ao rolar + botão flutuante */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const fab = $('#fab'); let rsvpVisible = false;
+new IntersectionObserver(([e]) => { rsvpVisible = e.isIntersecting; updFab(); }, { threshold: .05 }).observe($('#rsvp'));
+function updFab() { fab.classList.toggle('show', scrollY > innerHeight * .8 && !rsvpVisible); }
+addEventListener('scroll', updFab, { passive: true });
+</script>
+</body>
+</html>
