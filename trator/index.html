@@ -207,10 +207,11 @@ h1,h2,h3{font-family:'Baloo 2',Nunito,sans-serif;font-weight:800;line-height:1.0
 .stepper output{font:800 1.6rem 'Baloo 2';min-width:1.4em;text-align:center}
 .field-label{margin-top:14px;font-weight:800;font-size:.95rem}
 .field-label span{font-weight:600;color:var(--ink-2)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.chip{min-height:42px;padding:8px 12px;border-radius:30px;border:2.5px solid var(--line);background:#fff;font-weight:800;font-size:.9rem;cursor:pointer;
-  transition:transform .25s cubic-bezier(.3,1.7,.5,1),background .2s,border-color .2s}
-.chip[aria-checked="true"]{background:var(--sun);border-color:#e0a800;transform:scale(1.05)}
+.lembrete{display:flex;align-items:center;gap:10px;margin-top:16px;padding:12px 12px;border-radius:18px;background:#fff6d8;border:2.5px dashed #f0c95a;text-align:left}
+.lembrete svg{width:56px;height:52px;flex:none;animation:float 3s ease-in-out infinite}
+.lembrete p{font-size:.95rem;font-weight:600;line-height:1.4;color:var(--ink)}
+.lembrete b{display:block;font:800 1.2rem 'Baloo 2',sans-serif;color:var(--red);margin-bottom:1px}
+.lembrete strong{color:var(--grass-2);font-weight:800}
 .test-note{margin-top:14px;padding:10px 12px;border:2px dashed #e0a800;border-radius:12px;background:#fff8d6;font-size:.86rem;font-weight:700;color:#7a5a00;line-height:1.4}
 .send-err{margin-top:12px;padding:10px 12px;border-radius:12px;background:#fff1ec;color:var(--red-2);font-weight:700;font-size:.9rem}
 .btn-send{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;width:100%;min-height:58px;border:0;border-radius:18px;background:var(--red);color:#fff;
@@ -479,12 +480,9 @@ footer{text-align:center;padding:18px 16px 110px;color:#fff;font-weight:800;opac
                 <div><button type="button" data-step="-1" data-target="criancas" aria-label="Menos uma criança">−</button><output id="criancas" aria-live="polite">0</output><button type="button" data-step="1" data-target="criancas" aria-label="Mais uma criança">+</button></div>
               </div>
             </div>
-            <p class="field-label" id="fantasiaLbl">Vou fantasiado de… <span>(opcional)</span></p>
-            <div class="chips" role="radiogroup" aria-labelledby="fantasiaLbl">
-              <button type="button" class="chip" role="radio" aria-checked="false" data-v="Fazendeiro(a)">Fazendeiro(a) 👩‍🌾</button>
-              <button type="button" class="chip" role="radio" aria-checked="false" data-v="Cowboy / Cowgirl">Cowboy / Cowgirl 🤠</button>
-              <button type="button" class="chip" role="radio" aria-checked="false" data-v="Bichinho da fazenda">Bichinho da fazenda 🐮</button>
-              <button type="button" class="chip" role="radio" aria-checked="false" data-v="Surpresa!">Surpresa! 🎁</button>
+            <div class="lembrete">
+              <svg viewBox="0 0 120 110" aria-hidden="true"><use href="#cowArt"/></svg>
+              <p><b>Muuu!</b>Não esquece: venha caracterizado de <strong>fazendeiro(a)</strong>, <strong>cowboy/cowgirl</strong> ou <strong>bichinho da fazenda</strong>! 🤠</p>
             </div>
           </div>
 
@@ -694,7 +692,7 @@ for (let i = 0; i < 5; i++) {
 
 /* ---------- Confirmação ---------- */
 const form = $('#form'), nome = $('#nome'), btnSend = $('#btnSend');
-let vai = true, fantasia = '';
+let vai = true;
 const count = { adultos: 1, criancas: 0 };
 if (!Convite.configurado) $('#testNote').hidden = false;
 function mostrarLembrado() {
@@ -713,12 +711,6 @@ document.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click'
   count[k] = Math.min(20, Math.max(0, count[k] + Number(b.dataset.step)));
   $('#' + k).textContent = count[k]; sfx.tic(up);
 }));
-const chips = [...document.querySelectorAll('.chip')];
-chips.forEach(c => c.addEventListener('click', () => {
-  const on = c.getAttribute('aria-checked') !== 'true';
-  chips.forEach(o => o.setAttribute('aria-checked', o === c && on));
-  fantasia = on ? c.dataset.v : ''; sfx.tic(on);
-}));
 
 function getName() {
   const v = nome.value.trim(), f = $('#nomeField');
@@ -733,7 +725,7 @@ form.addEventListener('submit', async e => {
   if (vai && count.adultos + count.criancas === 0) { count.adultos = 1; $('#adultos').textContent = 1; }
   btnSend.disabled = true; btnSend.textContent = 'Enviando…'; $('#sendErr').hidden = true;
   try {
-    const r = await Convite.enviar({ nome: n, vai, adultos: count.adultos, criancas: count.criancas, fantasia, recado: $('#recado').value, convite: 'trator' });
+    const r = await Convite.enviar({ nome: n, vai, adultos: count.adultos, criancas: count.criancas, recado: $('#recado').value, convite: 'trator' });
     mostrarObrigado(n, r);
   } catch (err) {
     $('#sendErr').hidden = false; sfx.erro();

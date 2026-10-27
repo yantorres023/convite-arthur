@@ -6,8 +6,8 @@
  *   - Quem pode acessar: Qualquer pessoa
  */
 
-const CABECALHO = ['Data/hora', 'Nome', 'Vai?', 'Adultos', 'Crianças', 'Total', 'Fantasia', 'Recado', 'Convite', 'ID'];
-const COLUNA_ID = 10;
+const CABECALHO = ['Data/hora', 'Nome', 'Vai?', 'Adultos', 'Crianças', 'Total', 'Recado', 'Convite', 'ID'];
+const COLUNA_ID = 9;
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
@@ -32,7 +32,7 @@ function doPost(e) {
 
     aba.appendRow([
       new Date(), nome, vai ? 'Sim' : 'Não', adultos, criancas, adultos + criancas,
-      vai ? texto_(d.fantasia, 80) : '', texto_(d.recado, 300), texto_(d.convite, 40), id
+      texto_(d.recado, 300), texto_(d.convite, 40), id
     ]);
     resumo_(ss, aba.getName());
     return json_({ ok: true });
@@ -50,7 +50,17 @@ function doGet() {
 function abaRespostas_(ss) {
   const aba = ss.getSheets()[0];
   if (/^(Untitled|Sheet1|Página1|Planilha1)$/i.test(aba.getName())) aba.setName('Confirmações');
-  if (aba.getLastRow() === 0) aba.appendRow(CABECALHO);
+
+  // Enquanto não houver respostas, deixa o cabeçalho exatamente como CABECALHO.
+  if (aba.getLastRow() <= 1) {
+    const colunas = Math.max(aba.getLastColumn(), CABECALHO.length);
+    const atual = aba.getLastRow() ? aba.getRange(1, 1, 1, colunas).getValues()[0] : [];
+    const esperado = CABECALHO.concat(new Array(colunas - CABECALHO.length).fill(''));
+    if (atual.join('|') !== esperado.join('|')) {
+      aba.getRange(1, 1, 1, colunas).clearContent();
+      aba.getRange(1, 1, 1, CABECALHO.length).setValues([CABECALHO]);
+    }
+  }
   if (aba.getFrozenRows() === 0) {
     aba.setFrozenRows(1);
     aba.getRange(1, 1, 1, CABECALHO.length).setFontWeight('bold').setBackground('#ffe9a8');

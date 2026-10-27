@@ -194,10 +194,11 @@ main{position:relative;z-index:5;margin-top:-26px;border-radius:30px 30px 0 0;pa
 .so-vai.hide{grid-template-rows:0fr;opacity:0}
 .field-label{text-align:left;margin-top:16px;font-weight:600;font-size:.95rem}
 .field-label small{font-weight:500;color:var(--ink-2)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;padding-bottom:4px}
-.chip{padding:9px 13px;border-radius:30px;border:2px solid #ead9c2;background:#fff;font:500 .93rem Fredoka,sans-serif;color:var(--ink);cursor:pointer;
-  transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,border-color .2s}
-.chip[aria-checked="true"]{background:var(--sun);border-color:#d99a12;font-weight:600;transform:translateY(-2px) rotate(-2deg)}
+.lembrete{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;border-radius:18px;background:#fff6d8;border:2px dashed #f0c95a;text-align:left}
+.lembrete svg{width:60px;height:56px;flex:none;animation:float 3s ease-in-out infinite}
+.lembrete p{font-size:.98rem;line-height:1.4;color:var(--ink)}
+.lembrete b{display:block;font:400 1.2rem 'Lilita One',sans-serif;color:var(--barn);margin-bottom:2px}
+.lembrete strong{color:var(--grass-2)}
 .test-note{margin-top:16px;padding:10px 12px;border:2px dashed #e0a800;border-radius:12px;background:#fffaf0;color:#7a5a12;font-size:.88rem;line-height:1.4;text-align:left}
 .send-err{margin-top:14px;color:var(--barn);font-weight:600;font-size:.93rem}
 .already{margin-top:14px;padding:10px 12px;border-radius:12px;background:#eaf8e4;color:var(--grass-2);font-weight:600;font-size:.92rem;line-height:1.4}
@@ -406,12 +407,9 @@ footer .cow{width:96px;margin:0 auto 6px;display:block;animation:float 3s ease-i
               <div><button type="button" data-step="-1" data-target="criancas" aria-label="Menos uma criança">−</button><output id="criancas" aria-live="polite">0</output><button type="button" data-step="1" data-target="criancas" aria-label="Mais uma criança">+</button></div>
             </div>
           </div>
-          <p class="field-label">Vou fantasiado de… <small>(opcional)</small></p>
-          <div class="chips" role="radiogroup" aria-label="Fantasia">
-            <button type="button" class="chip" role="radio" aria-checked="false" data-v="Fazendeiro(a)">👩‍🌾 Fazendeiro(a)</button>
-            <button type="button" class="chip" role="radio" aria-checked="false" data-v="Cowboy / Cowgirl">🤠 Cowboy / Cowgirl</button>
-            <button type="button" class="chip" role="radio" aria-checked="false" data-v="Bichinho da fazenda">🐮 Bichinho da fazenda</button>
-            <button type="button" class="chip" role="radio" aria-checked="false" data-v="Surpresa!">🎁 Surpresa!</button>
+          <div class="lembrete">
+            <svg viewBox="0 0 120 110" aria-hidden="true"><use href="#horseArt"/></svg>
+            <p><b>Iirrí!</b>Não esquece: venha caracterizado de <strong>fazendeiro(a)</strong>, <strong>cowboy/cowgirl</strong> ou <strong>bichinho da fazenda</strong>! 🤠</p>
           </div>
           </div></div>
           <label class="field">Recadinho pro Arthur (opcional)
@@ -618,18 +616,12 @@ function getName() {
   f.classList.remove('err'); $('#nomeErr').hidden = true; return v;
 }
 nome.addEventListener('input', () => { if (nome.value.trim()) { $('#nomeField').classList.remove('err'); $('#nomeErr').hidden = true; } });
-let vai = true, fantasia = '';
+let vai = true;
 document.querySelectorAll('.vai-btn').forEach(b => b.addEventListener('click', () => {
   vai = b.dataset.vai === 'sim';
   document.querySelectorAll('.vai-btn').forEach(o => o.setAttribute('aria-checked', o === b));
   const box = $('#soVai'); box.classList.toggle('hide', !vai); box.inert = !vai;
   tone({ type: 'triangle', f0: vai ? 660 : 440, f1: vai ? 880 : 330, dur: .15, gain: .1 });
-}));
-document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
-  const on = c.getAttribute('aria-checked') !== 'true';
-  document.querySelectorAll('.chip').forEach(o => o.setAttribute('aria-checked', 'false'));
-  c.setAttribute('aria-checked', on); fantasia = on ? c.dataset.v : '';
-  if (on) tone({ type: 'triangle', f0: 880, dur: .1, gain: .08 });
 }));
 if (!C.configurado) $('#testNote').hidden = false;
 const antes = C.lembrado();
@@ -641,7 +633,7 @@ $('#form').addEventListener('submit', async e => {
   if (vai && count.adultos + count.criancas === 0) { count.adultos = 1; $('#adultos').textContent = 1; }
   const btn = $('#btnSend'); btn.disabled = true; $('#btnTxt').textContent = 'Enviando…'; $('#sendErr').hidden = true;
   try {
-    const r = await C.enviar({ nome: n, vai, adultos: count.adultos, criancas: count.criancas, fantasia, recado: $('#recado').value, convite: 'fazendinha' });
+    const r = await C.enviar({ nome: n, vai, adultos: count.adultos, criancas: count.criancas, recado: $('#recado').value, convite: 'fazendinha' });
     $('#form').hidden = true; $('#already').hidden = true;
     $('#doneTitle').textContent = vai ? 'Muuuito obrigado!' : 'Que pena! 💛';
     const msg = $('#doneMsg');

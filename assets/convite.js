@@ -11,7 +11,7 @@
   const inteiro = v => Math.max(0, Math.min(30, parseInt(v, 10) || 0));
 
   /* Envia uma resposta para a planilha.
-     dados: { nome, vai (bool), adultos, criancas, fantasia, recado, convite }
+     dados: { nome, vai (bool), adultos, criancas, recado, convite }
      Resolve com { ok: true } (ou { ok: true, teste: true } sem planilha ligada). Rejeita com Error se falhar. */
   async function enviar(dados) {
     const vai = dados.vai !== false;
@@ -21,7 +21,6 @@
       vai,
       adultos: vai ? inteiro(dados.adultos) : 0,
       criancas: vai ? inteiro(dados.criancas) : 0,
-      fantasia: vai ? limitar(dados.fantasia, 80) : '',
       recado: limitar(dados.recado, 300),
       convite: limitar(dados.convite, 40)
     };

@@ -38,5 +38,5 @@ Enquanto `planilha` estiver vazio, os convites mostram "modo teste" e nada é gr
 5. Clique em **Implantar** e autorize com a sua conta (em "Avançado", clique em "Acessar").
 6. Copie o **URL do app da Web** (termina em `/exec`) e coloque em `planilha` no `config.js`.
 
-Cada resposta vira uma linha: data/hora, nome, se vai, adultos, crianças, total, fantasia, recado e qual convite foi usado.
+Cada resposta vira uma linha: data/hora, nome, se vai, adultos, crianças, total, recado e qual convite foi usado.
 Uma aba **Resumo** é criada sozinha na primeira resposta, com os totais.
