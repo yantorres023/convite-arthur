@@ -1,34 +1,42 @@
-# Convites do Arthur · 1 ano 🤠
+# Convites do Arthur · 1 aninho 🐮
 
-Três opções de convite interativo para o aniversário de 1 ano do Arthur.
-Tema country, domingo, 29 de novembro, às 15h. Confirmação de presença pelo WhatsApp (31) 99169-2132.
+Três opções de convite interativo, todas no tema fazendinha, para o aniversário de 1 aninho do Arthur.
+Domingo, 29 de novembro, às 15h. As confirmações vão para uma planilha do Google.
 
 **Ver as 3 opções lado a lado:** https://yantorres023.github.io/convite-arthur/
 
 | Opção | Link | Destaques |
 |---|---|---|
-| 1. Velho Oeste | https://yantorres023.github.io/convite-arthur/velho-oeste/ | Portas de saloon, cartaz "Procura-se", estrela de xerife, Peãozômetro |
-| 2. Fazendinha | https://yantorres023.github.io/convite-arthur/fazendinha/ | Celeiro que abre, jogo de achar os bichinhos com sons, cores suaves |
-| 3. Rodeio VIP | https://yantorres023.github.io/convite-arthur/rodeio/ | Varal de luzes, laço animado, ingresso de raspadinha, escolha de personagem |
+| 1. Fazendinha | https://yantorres023.github.io/convite-arthur/fazendinha/ | Celeiro que abre, joguinho de achar os bichinhos com sons |
+| 2. Passeio de Trator | https://yantorres023.github.io/convite-arthur/trator/ | Tratorzinho que segue a estrada conforme a rolagem, joguinho das cenouras |
+| 3. Livrinho do Arthur | https://yantorres023.github.io/convite-arthur/livrinho/ | Livrinho para folhear, cada bichinho conta uma parte do convite |
 
-## Como funciona a confirmação
+## Onde mudar as informações
 
-O convidado preenche nome, número de adultos e crianças e um recado opcional.
-O botão abre o WhatsApp com a mensagem pronta para o número 5531991692132.
-Também há um botão "Não vou conseguir ir" e um botão para salvar na agenda.
-
-## Ajustes rápidos
-
-No final de cada `index.html` há um bloco `CONFIG`:
+Tudo fica em [`config.js`](config.js), e vale para os 3 convites:
 
 ```js
-const CONFIG = {
-  whatsapp: '5531991692132',
+window.CONVITE = {
+  planilha: '',  // endereço do App da Web do Apps Script (termina em /exec)
+  local: '',     // endereço da festa
+  mapa: '',      // link do Google Maps (opcional)
   inicio: '2026-11-29T15:00:00-03:00',
-  local: '',  // ex.: 'Rua das Flores, 123 – Bairro, Belo Horizonte'
-  mapa: ''    // link do Google Maps (opcional)
+  fim: '2026-11-29T19:00:00-03:00'
 };
 ```
 
-Com `local` vazio, o convite diz que o endereço vai junto com a confirmação.
-Preenchendo `local` (e `mapa`, se quiser), o endereço aparece no convite.
+Enquanto `planilha` estiver vazio, os convites mostram "modo teste" e nada é gravado.
+
+## Como ligar a planilha (uma vez só)
+
+1. Abra a planilha **Confirmações · Aniversário do Arthur** no Google Drive.
+2. Menu **Extensões → Apps Script**.
+3. Apague o que estiver no editor e cole o conteúdo de [`planilha/Codigo.gs`](planilha/Codigo.gs). Clique em **Salvar**.
+4. **Implantar → Nova implantação**. Na engrenagem, escolha **App da Web**.
+   - Executar como: **Eu**
+   - Quem pode acessar: **Qualquer pessoa**
+5. Clique em **Implantar** e autorize com a sua conta (em "Avançado", clique em "Acessar").
+6. Copie o **URL do app da Web** (termina em `/exec`) e coloque em `planilha` no `config.js`.
+
+Cada resposta vira uma linha: data/hora, nome, se vai, adultos, crianças, total, fantasia, recado e qual convite foi usado.
+Uma aba **Resumo** é criada sozinha na primeira resposta, com os totais.

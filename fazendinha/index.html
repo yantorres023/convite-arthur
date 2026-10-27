@@ -183,8 +183,30 @@ main{position:relative;z-index:5;margin-top:-26px;border-radius:30px 30px 0 0;pa
 .btn-yes svg{width:24px;height:24px;flex:none}
 .btn-no{margin-top:12px;padding:10px;background:none;color:var(--ink-2);font-weight:500;text-decoration:underline;text-underline-offset:4px}
 .btn-cal{margin-top:4px;padding:12px;background:#fff;color:var(--ink);font-weight:600;border:2px dashed #ead9c2}
-.thanks{display:none;margin-top:16px;padding:14px;border-radius:16px;background:#eaf8e4;color:var(--grass-2);font-weight:600}
-.thanks.show{display:block;animation:popIn .6s cubic-bezier(.3,1.6,.5,1)}
+.btn-yes[disabled]{opacity:.75;cursor:wait}
+.vai{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.vai-btn{padding:14px 6px;border-radius:16px;border:2px solid #ead9c2;background:#fff;font:600 1rem Fredoka,sans-serif;color:var(--ink-2);cursor:pointer;
+  transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,border-color .2s,color .2s}
+.vai-btn[aria-checked="true"][data-vai="sim"]{background:#eaf8e4;border-color:var(--grass);color:var(--grass-2);transform:scale(1.04)}
+.vai-btn[aria-checked="true"][data-vai="nao"]{background:#fff0ec;border-color:var(--barn);color:var(--barn);transform:scale(1.04)}
+.so-vai{display:grid;grid-template-rows:1fr;transition:grid-template-rows .45s ease,opacity .3s}
+.so-vai>div{overflow:hidden}
+.so-vai.hide{grid-template-rows:0fr;opacity:0}
+.field-label{text-align:left;margin-top:16px;font-weight:600;font-size:.95rem}
+.field-label small{font-weight:500;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;padding-bottom:4px}
+.chip{padding:9px 13px;border-radius:30px;border:2px solid #ead9c2;background:#fff;font:500 .93rem Fredoka,sans-serif;color:var(--ink);cursor:pointer;
+  transition:transform .25s cubic-bezier(.3,1.6,.5,1),background .2s,border-color .2s}
+.chip[aria-checked="true"]{background:var(--sun);border-color:#d99a12;font-weight:600;transform:translateY(-2px) rotate(-2deg)}
+.test-note{margin-top:16px;padding:10px 12px;border:2px dashed #e0a800;border-radius:12px;background:#fffaf0;color:#7a5a12;font-size:.88rem;line-height:1.4;text-align:left}
+.send-err{margin-top:14px;color:var(--barn);font-weight:600;font-size:.93rem}
+.already{margin-top:14px;padding:10px 12px;border-radius:12px;background:#eaf8e4;color:var(--grass-2);font-weight:600;font-size:.92rem;line-height:1.4}
+.done{padding:6px 0 10px;animation:popIn .6s cubic-bezier(.3,1.6,.5,1)}
+.done-cow{width:120px;margin:4px auto 0;display:block;animation:float 2.6s ease-in-out infinite}
+.done h3{font-size:1.9rem;color:var(--grass-2);margin-top:8px}
+.done p{margin-top:6px;color:var(--ink-2);line-height:1.5;font-size:1.05rem}
+.done small{display:block;margin-top:8px;color:#7a5a12;font-size:.85rem}
+.btn-again{margin-top:16px;padding:12px;background:#fff;border:2px solid #ead9c2;color:var(--ink);font-weight:600}
 
 footer{text-align:center;margin-top:10px}
 footer p{font:400 clamp(1.6rem,7vw,2.1rem) 'Lilita One';color:var(--barn)}
@@ -315,7 +337,7 @@ footer .cow{width:96px;margin:0 auto 6px;display:block;animation:float 3s ease-i
           </div>
           <div class="info-item">
             <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44s14-13 14-24a14 14 0 10-28 0c0 11 14 24 14 24z" fill="#6cbf5a" stroke="#4a2e1c" stroke-width="2.5"/><circle cx="24" cy="20" r="5" fill="#fff" stroke="#4a2e1c" stroke-width="2"/></svg>
-            <b>Local</b><span id="where">vai junto com a confirmação</span>
+            <b>Local</b><span id="where">em breve 📍</span>
           </div>
         </div>
       </div>
@@ -349,7 +371,7 @@ footer .cow{width:96px;margin:0 auto 6px;display:block;animation:float 3s ease-i
     <section class="card reveal" aria-labelledby="t-traje">
       <div class="card-in">
         <h2 id="t-traje">Vem a caráter! <b>🤠</b></h2>
-        <p class="lead">A festa é <strong>country</strong> e a gente quer todo mundo no clima da fazendinha. Capricha no look!</p>
+        <p class="lead">A festa é na <strong>fazendinha</strong>! Venha caracterizado de fazendeiro(a), cowboy/cowgirl ou bichinho da fazenda. Capricha no look!</p>
         <div class="looks">
           <div class="look"><svg viewBox="0 0 64 40" aria-hidden="true"><use href="#hat"/></svg><span>Chapéu</span></div>
           <div class="look"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 8l10 7 10-7 15 8-6 13-6-3v30H19V26l-6 3-6-13z" fill="url(#plaid)" stroke="#4a2e1c" stroke-width="2" stroke-linejoin="round"/><path d="M22 8l10 12 10-12" fill="#fff8e8" stroke="#4a2e1c" stroke-width="2" stroke-linejoin="round"/><path d="M32 20v36" stroke="#4a2e1c" stroke-width="1.5"/></svg><span>Xadrez</span></div>
@@ -364,12 +386,18 @@ footer .cow{width:96px;margin:0 auto 6px;display:block;animation:float 3s ease-i
     <section class="card reveal" id="rsvp" aria-labelledby="t-rsvp">
       <div class="card-in">
         <h2 id="t-rsvp">Confirma presença?</h2>
-        <p class="lead">Preencha rapidinho e envie pelo WhatsApp. O Arthur agradece! 💛</p>
+        <p class="lead">Responde rapidinho pra gente preparar tudo com carinho. O Arthur agradece! 💛</p>
+        <p class="already" id="already" hidden></p>
         <form id="form" novalidate>
           <label class="field" id="nomeField">Seu nome (ou da família)
             <input id="nome" autocomplete="name" placeholder="Ex.: Família Silva" maxlength="80">
             <span class="err-msg" id="nomeErr" hidden>Conta pra gente quem é você 😉</span>
           </label>
+          <div class="vai" role="radiogroup" aria-label="Você vai à festa?">
+            <button type="button" class="vai-btn" role="radio" aria-checked="true" data-vai="sim">Vou sim! 🎉</button>
+            <button type="button" class="vai-btn" role="radio" aria-checked="false" data-vai="nao">Não vou poder 😢</button>
+          </div>
+          <div class="so-vai" id="soVai"><div>
           <div class="steppers">
             <div class="stepper"><span>Adultos</span>
               <div><button type="button" data-step="-1" data-target="adultos" aria-label="Menos um adulto">−</button><output id="adultos" aria-live="polite">1</output><button type="button" data-step="1" data-target="adultos" aria-label="Mais um adulto">+</button></div>
@@ -378,17 +406,31 @@ footer .cow{width:96px;margin:0 auto 6px;display:block;animation:float 3s ease-i
               <div><button type="button" data-step="-1" data-target="criancas" aria-label="Menos uma criança">−</button><output id="criancas" aria-live="polite">0</output><button type="button" data-step="1" data-target="criancas" aria-label="Mais uma criança">+</button></div>
             </div>
           </div>
+          <p class="field-label">Vou fantasiado de… <small>(opcional)</small></p>
+          <div class="chips" role="radiogroup" aria-label="Fantasia">
+            <button type="button" class="chip" role="radio" aria-checked="false" data-v="Fazendeiro(a)">👩‍🌾 Fazendeiro(a)</button>
+            <button type="button" class="chip" role="radio" aria-checked="false" data-v="Cowboy / Cowgirl">🤠 Cowboy / Cowgirl</button>
+            <button type="button" class="chip" role="radio" aria-checked="false" data-v="Bichinho da fazenda">🐮 Bichinho da fazenda</button>
+            <button type="button" class="chip" role="radio" aria-checked="false" data-v="Surpresa!">🎁 Surpresa!</button>
+          </div>
+          </div></div>
           <label class="field">Recadinho pro Arthur (opcional)
             <textarea id="recado" rows="2" maxlength="300" placeholder="Parabéns, Arthurzinho! 🎂"></textarea>
           </label>
-          <button class="btn btn-yes" type="submit">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span>Confirmar no WhatsApp</span>
+          <p class="test-note" id="testNote" hidden>Modo teste: a planilha ainda não foi conectada, então esta resposta não será salva.</p>
+          <p class="send-err" id="sendErr" role="alert" hidden>Não conseguimos enviar. Confira a internet e tente de novo.</p>
+          <button class="btn btn-yes" type="submit" id="btnSend">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            <span id="btnTxt">Enviar confirmação</span>
           </button>
-          <button class="btn btn-no" type="button" id="btnNo">Não vou conseguir ir 😢</button>
         </form>
+        <div class="done" id="done" role="status" hidden>
+          <svg class="done-cow" viewBox="0 0 120 110" aria-hidden="true"><use href="#cowArt"/></svg>
+          <h3 id="doneTitle">Muuuito obrigado!</h3>
+          <p id="doneMsg"></p>
+          <button type="button" class="btn btn-again" id="again">Enviar outra resposta</button>
+        </div>
         <a class="btn btn-cal" id="cal" href="#" target="_blank" rel="noopener">📅 Salvar na agenda</a>
-        <p class="thanks" id="thanks" role="status">Oba! Abrimos o WhatsApp pra você enviar. Até a festa! 🐮</p>
       </div>
     </section>
 
@@ -463,15 +505,11 @@ footer .cow{width:96px;margin:0 auto 6px;display:block;animation:float 3s ease-i
 </defs></svg>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+<script src="../config.js"></script>
+<script src="../assets/convite.js"></script>
 <script>
-/* ===== Ajuste aqui ===== */
-const CONFIG = {
-  whatsapp: '5531991692132',
-  inicio: '2026-11-29T15:00:00-03:00',
-  local: '',  // ex.: 'Rua das Flores, 123 – Bairro, Belo Horizonte'
-  mapa: ''    // link do Google Maps (opcional)
-};
-/* ======================= */
+/* Endereço, planilha e data ficam em ../config.js */
+const C = window.Convite;
 const $ = s => document.querySelector(s);
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -514,10 +552,7 @@ soundBtn.addEventListener('click', () => {
 });
 
 /* Endereço */
-if (CONFIG.local) {
-  const w = $('#where'); w.textContent = CONFIG.local;
-  if (CONFIG.mapa) { const a = document.createElement('a'); a.href = CONFIG.mapa; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Ver no mapa'; w.append(document.createElement('br'), a); }
-}
+C.local($('#where'), 'em breve 📍');
 
 /* Celeiro */
 const barn = $('#barn');
@@ -532,16 +567,12 @@ barn.addEventListener('click', () => {
 });
 
 /* Contagem regressiva */
-const target = new Date(CONFIG.inicio).getTime();
 const cdEls = { d: $('#cd-d'), h: $('#cd-h'), m: $('#cd-m'), s: $('#cd-s') };
 const pad = n => String(n).padStart(2, '0');
-function tick() {
-  const diff = target - Date.now();
-  if (diff <= 0) { $('#cd').innerHTML = `<p class="today">${diff > -864e5 ? 'É hoje! 🎉' : 'Foi lindo! Obrigado 💛'}</p>`; clearInterval(timer); return; }
-  const v = { d: Math.floor(diff / 864e5), h: Math.floor(diff / 36e5) % 24, m: Math.floor(diff / 6e4) % 60, s: Math.floor(diff / 1e3) % 60 };
-  for (const k in v) { const t = pad(v[k]), el = cdEls[k]; if (el.textContent !== t) { el.textContent = t; if (!reduce) { el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); } } }
-}
-const timer = setInterval(tick, 1000); tick();
+C.countdown(v => {
+  if (v.fim) { $('#cd').innerHTML = `<p class="today">${v.hoje ? 'É hoje! 🎉' : 'Foi lindo! Obrigado 💛'}</p>`; return; }
+  for (const k in cdEls) { const t = pad(v[k]), el = cdEls[k]; if (el.textContent !== t) { el.textContent = t; if (!reduce) { el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); } } }
+});
 
 /* Jogo: cadê os bichinhos? */
 const animals = {
@@ -587,30 +618,48 @@ function getName() {
   f.classList.remove('err'); $('#nomeErr').hidden = true; return v;
 }
 nome.addEventListener('input', () => { if (nome.value.trim()) { $('#nomeField').classList.remove('err'); $('#nomeErr').hidden = true; } });
-function openWA(text) {
-  const url = 'https://api.whatsapp.com/send?phone=' + CONFIG.whatsapp + '&text=' + encodeURIComponent(text);
-  const w = window.open(url, '_blank'); if (w) w.opener = null; else location.href = url;
-}
-$('#form').addEventListener('submit', e => {
+let vai = true, fantasia = '';
+document.querySelectorAll('.vai-btn').forEach(b => b.addEventListener('click', () => {
+  vai = b.dataset.vai === 'sim';
+  document.querySelectorAll('.vai-btn').forEach(o => o.setAttribute('aria-checked', o === b));
+  const box = $('#soVai'); box.classList.toggle('hide', !vai); box.inert = !vai;
+  tone({ type: 'triangle', f0: vai ? 660 : 440, f1: vai ? 880 : 330, dur: .15, gain: .1 });
+}));
+document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+  const on = c.getAttribute('aria-checked') !== 'true';
+  document.querySelectorAll('.chip').forEach(o => o.setAttribute('aria-checked', 'false'));
+  c.setAttribute('aria-checked', on); fantasia = on ? c.dataset.v : '';
+  if (on) tone({ type: 'triangle', f0: 880, dur: .1, gain: .08 });
+}));
+if (!C.configurado) $('#testNote').hidden = false;
+const antes = C.lembrado();
+if (antes && antes.nome) { const al = $('#already'); al.textContent = `Você já respondeu como ${antes.nome} ✓ Pode enviar de novo se algo mudar.`; al.hidden = false; }
+
+$('#form').addEventListener('submit', async e => {
   e.preventDefault();
   const n = getName(); if (!n) return;
-  if (count.adultos + count.criancas === 0) { count.adultos = 1; $('#adultos').textContent = 1; }
-  let t = `Oi! 🐮 Aqui é ${n}.\nConfirmo presença na Fazendinha do Arthur (1 aninho), domingo (29/11) às 15h!\n\n👤 Adultos: ${count.adultos}\n🧒 Crianças: ${count.criancas}`;
-  const r = $('#recado').value.trim(); if (r) t += `\n\n💬 Recadinho pro Arthur: ${r}`;
-  openWA(t);
-  $('#thanks').classList.add('show'); sounds.vitoria(); party(150);
+  if (vai && count.adultos + count.criancas === 0) { count.adultos = 1; $('#adultos').textContent = 1; }
+  const btn = $('#btnSend'); btn.disabled = true; $('#btnTxt').textContent = 'Enviando…'; $('#sendErr').hidden = true;
+  try {
+    const r = await C.enviar({ nome: n, vai, adultos: count.adultos, criancas: count.criancas, fantasia, recado: $('#recado').value, convite: 'fazendinha' });
+    $('#form').hidden = true; $('#already').hidden = true;
+    $('#doneTitle').textContent = vai ? 'Muuuito obrigado!' : 'Que pena! 💛';
+    const msg = $('#doneMsg');
+    msg.textContent = vai ? `${n}, sua presença está confirmada. O Arthur vai amar te ver na fazendinha!` : `${n}, obrigado por avisar. Vamos sentir sua falta!`;
+    if (r.teste) { const s = document.createElement('small'); s.textContent = '(modo teste: esta resposta não foi salva na planilha)'; msg.append(s); }
+    $('#done').hidden = false;
+    if (vai) { sounds.vaca(); setTimeout(sounds.vitoria, 900); party(160); } else sounds.feno();
+    $('#done').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+  } catch (err) {
+    $('#sendErr').hidden = false;
+  } finally {
+    btn.disabled = false; $('#btnTxt').textContent = 'Enviar confirmação';
+  }
 });
-$('#btnNo').addEventListener('click', () => {
-  const n = getName(); if (!n) return;
-  let t = `Oi! Aqui é ${n}. Infelizmente não vou conseguir ir à Fazendinha do Arthur 😢\nMando um beijo enorme e muitas felicidades pelo 1 aninho! 💛`;
-  const r = $('#recado').value.trim(); if (r) t += `\n\n💬 Recadinho pro Arthur: ${r}`;
-  openWA(t);
-});
+$('#again').addEventListener('click', () => { $('#done').hidden = true; $('#form').hidden = false; nome.focus(); });
 
 /* Agenda */
-const cal = $('#cal');
-if (/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)) { cal.href = '../arthur.ics'; cal.removeAttribute('target'); }
-else cal.href = 'https://calendar.google.com/calendar/render?' + new URLSearchParams({ action: 'TEMPLATE', text: 'Aniversário de 1 aninho do Arthur 🐮', dates: '20261129T180000Z/20261129T220000Z', details: 'Festa country, venha caracterizado! Convite: ' + location.href.split('#')[0], location: CONFIG.local }).toString();
+C.agenda($('#cal'), 'Aniversário de 1 aninho do Arthur 🐮');
 
 /* Revelar ao rolar + botão flutuante */
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
